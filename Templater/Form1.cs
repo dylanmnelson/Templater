@@ -26,5 +26,36 @@ namespace Templater
         {
             Application.Exit();
         }
+
+        /// <summary>
+        /// Creates a new HTML template and displays in the output text box.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void newTemplateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBoxOutput.ReadOnly = false;
+            richTextBoxOutput.Text = "<html>\n\t<head>\n\t\t<title></title>\n\t</head>\n</html>";
+        }
+
+        /// <summary>
+        /// Saves the text in the output text box to a html file.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void saveTemplateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // TODO save file dialog, display status in the strip.
+        }
+
+        /// <summary>
+        /// Opens a HTML template from the file system.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void openTemplateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // TODO open file dialog, display in output box.
+        }
     }
 }
