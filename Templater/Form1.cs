@@ -51,6 +51,7 @@ namespace Templater
                 if(saveFileDialogTemplate.ShowDialog() == System.Windows.Forms.DialogResult.OK && saveFileDialogTemplate.FileName.Length > 0)
                 {
                     richTextBoxOutput.SaveFile(saveFileDialogTemplate.FileName, RichTextBoxStreamType.PlainText);
+                    statusLabelFileSaved.Text = "File '" + saveFileDialogTemplate.FileName + "' saved successfully";
                 }
             }
             catch (Exception ex)

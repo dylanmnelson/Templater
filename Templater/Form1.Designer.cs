@@ -42,8 +42,11 @@
             this.richTextBoxOutput = new System.Windows.Forms.RichTextBox();
             this.buttonInsertDependencies = new System.Windows.Forms.Button();
             this.saveFileDialogTemplate = new System.Windows.Forms.SaveFileDialog();
+            this.statusStripInfo = new System.Windows.Forms.StatusStrip();
+            this.statusLabelFileSaved = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStripMain.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.statusStripInfo.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStripMain
@@ -131,12 +134,14 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
             this.tableLayoutPanel1.Controls.Add(this.richTextBoxOutput, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.buttonInsertDependencies, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.statusStripInfo, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 28);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(851, 539);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
@@ -149,7 +154,7 @@
             this.richTextBoxOutput.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.richTextBoxOutput.Name = "richTextBoxOutput";
             this.richTextBoxOutput.ReadOnly = true;
-            this.richTextBoxOutput.Size = new System.Drawing.Size(645, 535);
+            this.richTextBoxOutput.Size = new System.Drawing.Size(645, 510);
             this.richTextBoxOutput.TabIndex = 0;
             this.richTextBoxOutput.Text = "";
             // 
@@ -172,6 +177,23 @@
             this.saveFileDialogTemplate.FileName = "template.html";
             this.saveFileDialogTemplate.Filter = "HTML File | *.html";
             // 
+            // statusStripInfo
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.statusStripInfo, 2);
+            this.statusStripInfo.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.statusStripInfo.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.statusLabelFileSaved});
+            this.statusStripInfo.Location = new System.Drawing.Point(0, 515);
+            this.statusStripInfo.Name = "statusStripInfo";
+            this.statusStripInfo.Size = new System.Drawing.Size(851, 24);
+            this.statusStripInfo.TabIndex = 2;
+            this.statusStripInfo.Text = "statusStrip1";
+            // 
+            // statusLabelFileSaved
+            // 
+            this.statusLabelFileSaved.Name = "statusLabelFileSaved";
+            this.statusLabelFileSaved.Size = new System.Drawing.Size(0, 19);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -188,6 +210,8 @@
             this.menuStripMain.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.statusStripInfo.ResumeLayout(false);
+            this.statusStripInfo.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -209,6 +233,8 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem saveTemplateToolStripMenuItem;
         private System.Windows.Forms.SaveFileDialog saveFileDialogTemplate;
+        private System.Windows.Forms.StatusStrip statusStripInfo;
+        private System.Windows.Forms.ToolStripStatusLabel statusLabelFileSaved;
     }
 }
 
