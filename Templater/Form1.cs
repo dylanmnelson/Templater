@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -45,7 +46,18 @@ namespace Templater
         /// <param name="e"></param>
         private void saveTemplateToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // TODO save file dialog, display status in the strip.
+            try
+            {
+                if(saveFileDialogTemplate.ShowDialog() == System.Windows.Forms.DialogResult.OK && saveFileDialogTemplate.FileName.Length > 0)
+                {
+                    richTextBoxOutput.SaveFile(saveFileDialogTemplate.FileName, RichTextBoxStreamType.PlainText);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Could not save the template file.");
+                throw ex;
+            }
         }
 
         /// <summary>

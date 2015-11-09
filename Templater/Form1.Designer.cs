@@ -41,6 +41,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.richTextBoxOutput = new System.Windows.Forms.RichTextBox();
             this.buttonInsertDependencies = new System.Windows.Forms.Button();
+            this.saveFileDialogTemplate = new System.Windows.Forms.SaveFileDialog();
             this.menuStripMain.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -165,6 +166,12 @@
             this.buttonInsertDependencies.Text = "Insert Dependencies";
             this.buttonInsertDependencies.UseVisualStyleBackColor = true;
             // 
+            // saveFileDialogTemplate
+            // 
+            this.saveFileDialogTemplate.DefaultExt = "*.html";
+            this.saveFileDialogTemplate.FileName = "template.html";
+            this.saveFileDialogTemplate.Filter = "HTML File | *.html";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -201,6 +208,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem saveTemplateToolStripMenuItem;
+        private System.Windows.Forms.SaveFileDialog saveFileDialogTemplate;
     }
 }
 
