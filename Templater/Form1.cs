@@ -35,7 +35,7 @@ namespace Templater
         private void newTemplateToolStripMenuItem_Click(object sender, EventArgs e)
         {
             richTextBoxOutput.ReadOnly = false;
-            richTextBoxOutput.Text = "<html>\n\t<head>\n\t\t<title></title>\n\t</head>\n</html>";
+            richTextBoxOutput.Text = HTMLHelper.HTML5_DEFAULT;
         }
 
         /// <summary>
