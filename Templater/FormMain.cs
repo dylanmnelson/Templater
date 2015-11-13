@@ -11,9 +11,12 @@ using System.Windows.Forms;
 
 namespace Templater
 {
-    public partial class Form1 : Form
+    public partial class FormMain : Form
     {
-        public Form1()
+
+        private FormNewTemplate newTemplateForm;
+
+        public FormMain()
         {
             InitializeComponent();
         }
@@ -35,8 +38,10 @@ namespace Templater
         /// <param name="e"></param>
         private void newTemplateToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            richTextBoxOutput.ReadOnly = false;
-            richTextBoxOutput.Text = HTMLHelper.HTML5_DEFAULT;
+            newTemplateForm = new FormNewTemplate();
+            newTemplateForm.ShowDialog();
+            /*richTextBoxOutput.ReadOnly = false;
+            richTextBoxOutput.Text = HTMLHelper.HTML5_DEFAULT;*/
         }
 
         /// <summary>
