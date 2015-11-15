@@ -16,5 +16,10 @@ namespace Templater
         {
             InitializeComponent();
         }
+
+        public bool isHTML5Selected
+        {
+            get { return radioButtonHTML5.Checked; }
+        }
     }
 }
