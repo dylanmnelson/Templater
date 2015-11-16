@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -45,7 +46,7 @@ namespace Templater
         }
 
         /// <summary>
-        /// Saves the text in the output text box to a html file.
+        /// Saves the text in the output text box to a HTML file.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -73,7 +74,44 @@ namespace Templater
         /// <param name="e"></param>
         private void openTemplateToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // TODO open file dialog, display in output box.
+
+            // Get a file from the open file dialog.
+            try
+            {
+                DialogResult result = openFileDialogTemplate.ShowDialog();
+                if(result == DialogResult.OK)
+                {
+
+                    // Check if the file is a HTML file.
+                    if(Path.GetExtension(openFileDialogTemplate.FileName)!= ".html")
+                    {
+                        MessageBox.Show("Template files can only be of type '.html'", "Error: Wrong file type", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        displayTemplate(openFileDialogTemplate.FileName);
+                    }
+                }
+            }
+            catch (FileLoadException ex)
+            {
+                MessageBox.Show("The template file could not be loaded correctly.", "Error: File not loaded", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw ex;
+            }
+            catch (FileNotFoundException ex)
+            {
+                MessageBox.Show("The template file could not be found.", "Error: File not found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// Displays a HTML template in the output text box from a file.
+        /// </summary>
+        /// <param name="fileName">The file name of the template to load.</param>
+        private void displayTemplate(string fileName)
+        {
+            richTextBoxOutput.LoadFile(fileName, RichTextBoxStreamType.PlainText);
         }
     }
 }

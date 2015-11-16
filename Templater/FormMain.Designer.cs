@@ -41,9 +41,10 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.richTextBoxOutput = new System.Windows.Forms.RichTextBox();
             this.buttonInsertDependencies = new System.Windows.Forms.Button();
-            this.saveFileDialogTemplate = new System.Windows.Forms.SaveFileDialog();
             this.statusStripInfo = new System.Windows.Forms.StatusStrip();
             this.statusLabelFileSaved = new System.Windows.Forms.ToolStripStatusLabel();
+            this.saveFileDialogTemplate = new System.Windows.Forms.SaveFileDialog();
+            this.openFileDialogTemplate = new System.Windows.Forms.OpenFileDialog();
             this.menuStripMain.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.statusStripInfo.SuspendLayout();
@@ -171,30 +172,35 @@
             this.buttonInsertDependencies.Text = "Insert Dependencies";
             this.buttonInsertDependencies.UseVisualStyleBackColor = true;
             // 
-            // saveFileDialogTemplate
-            // 
-            this.saveFileDialogTemplate.DefaultExt = "*.html";
-            this.saveFileDialogTemplate.FileName = "template.html";
-            this.saveFileDialogTemplate.Filter = "HTML File | *.html";
-            // 
             // statusStripInfo
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.statusStripInfo, 2);
             this.statusStripInfo.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStripInfo.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.statusLabelFileSaved});
-            this.statusStripInfo.Location = new System.Drawing.Point(0, 515);
+            this.statusStripInfo.Location = new System.Drawing.Point(0, 517);
             this.statusStripInfo.Name = "statusStripInfo";
-            this.statusStripInfo.Size = new System.Drawing.Size(851, 24);
+            this.statusStripInfo.Size = new System.Drawing.Size(851, 22);
             this.statusStripInfo.TabIndex = 2;
             this.statusStripInfo.Text = "statusStrip1";
             // 
             // statusLabelFileSaved
             // 
             this.statusLabelFileSaved.Name = "statusLabelFileSaved";
-            this.statusLabelFileSaved.Size = new System.Drawing.Size(0, 19);
+            this.statusLabelFileSaved.Size = new System.Drawing.Size(0, 17);
             // 
-            // Form1
+            // saveFileDialogTemplate
+            // 
+            this.saveFileDialogTemplate.DefaultExt = "*.html";
+            this.saveFileDialogTemplate.FileName = "template.html";
+            this.saveFileDialogTemplate.Filter = "HTML File | *.html";
+            // 
+            // openFileDialogTemplate
+            // 
+            this.openFileDialogTemplate.FileName = "openFileDialog1";
+            this.openFileDialogTemplate.Filter = "HTML Files (*.html)|*html|All Files (*)|*.*";
+            // 
+            // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -204,7 +210,7 @@
             this.MainMenuStrip = this.menuStripMain;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MinimumSize = new System.Drawing.Size(599, 47);
-            this.Name = "Form1";
+            this.Name = "FormMain";
             this.Text = "Templater";
             this.menuStripMain.ResumeLayout(false);
             this.menuStripMain.PerformLayout();
@@ -235,6 +241,7 @@
         private System.Windows.Forms.SaveFileDialog saveFileDialogTemplate;
         private System.Windows.Forms.StatusStrip statusStripInfo;
         private System.Windows.Forms.ToolStripStatusLabel statusLabelFileSaved;
+        private System.Windows.Forms.OpenFileDialog openFileDialogTemplate;
     }
 }
 
