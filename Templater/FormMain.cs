@@ -40,9 +40,18 @@ namespace Templater
         private void newTemplateToolStripMenuItem_Click(object sender, EventArgs e)
         {
             newTemplateForm = new FormNewTemplate();
-            newTemplateForm.ShowDialog();
-            /*richTextBoxOutput.ReadOnly = false;
-            richTextBoxOutput.Text = HTMLHelper.HTML5_DEFAULT;*/
+            if(newTemplateForm.ShowDialog() == DialogResult.OK)
+            {
+                richTextBoxOutput.ReadOnly = false;
+                if(newTemplateForm.isHTML5Selected)
+                {
+                    richTextBoxOutput.Text = HTMLHelper.HTML5_DEFAULT;
+                }
+                else
+                {
+                    richTextBoxOutput.Text = HTMLHelper.HTML4_DTD_STRICT;
+                }
+            }
         }
 
         /// <summary>
@@ -54,7 +63,7 @@ namespace Templater
         {
             try
             {
-                if(saveFileDialogTemplate.ShowDialog() == System.Windows.Forms.DialogResult.OK && saveFileDialogTemplate.FileName.Length > 0)
+                if(saveFileDialogTemplate.ShowDialog() == DialogResult.OK && saveFileDialogTemplate.FileName.Length > 0)
                 {
                     richTextBoxOutput.SaveFile(saveFileDialogTemplate.FileName, RichTextBoxStreamType.PlainText);
                     statusLabelFileSaved.Text = "File '" + saveFileDialogTemplate.FileName + "' saved successfully";

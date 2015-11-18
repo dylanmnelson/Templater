@@ -15,6 +15,8 @@ namespace Templater
         public FormNewTemplate()
         {
             InitializeComponent();
+            this.AcceptButton = buttonCreateTemplate;
+            this.buttonCreateTemplate.DialogResult = DialogResult.OK;
         }
 
         public bool isHTML5Selected
