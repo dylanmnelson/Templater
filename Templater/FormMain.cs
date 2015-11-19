@@ -47,9 +47,13 @@ namespace Templater
                 {
                     richTextBoxOutput.Text = HTMLHelper.HTML5_DEFAULT;
                 }
-                else
+                else if(newTemplateForm.isHTML4Selected)
                 {
                     richTextBoxOutput.Text = HTMLHelper.HTML4_DTD_STRICT;
+                }
+                else
+                {
+                    richTextBoxOutput.Text = HTMLHelper.XHTML_DTD_STRICT;
                 }
             }
         }

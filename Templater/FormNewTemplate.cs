@@ -23,5 +23,15 @@ namespace Templater
         {
             get { return radioButtonHTML5.Checked; }
         }
+
+        public bool isHTML4Selected
+        {
+            get { return radioButtonHTML4.Checked; }
+        }
+
+        public bool isXHTMLSelected
+        {
+            get { return radioButtonXHTML.Checked; }
+        }
     }
 }
