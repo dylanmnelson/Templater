@@ -19,19 +19,24 @@ namespace Templater
             this.buttonCreateTemplate.DialogResult = DialogResult.OK;
         }
 
-        public bool isHTML5Selected
+        public bool IsHTML5Selected
         {
             get { return radioButtonHTML5.Checked; }
         }
 
-        public bool isHTML4Selected
+        public bool IsHTML4Selected
         {
             get { return radioButtonHTML4.Checked; }
         }
 
-        public bool isXHTMLSelected
+        public bool IsXHTMLSelected
         {
             get { return radioButtonXHTML.Checked; }
+        }
+
+        public string Title
+        {
+            get { return textBoxTitle.Text; }
         }
     }
 }

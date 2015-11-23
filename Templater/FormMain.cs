@@ -16,6 +16,7 @@ namespace Templater
     {
 
         private FormNewTemplate newTemplateForm;
+        Template page = new Template();
 
         public FormMain()
         {
@@ -43,11 +44,13 @@ namespace Templater
             if(newTemplateForm.ShowDialog() == DialogResult.OK)
             {
                 richTextBoxOutput.ReadOnly = false;
-                if(newTemplateForm.isHTML5Selected)
+
+                // Set the base template.
+                if(newTemplateForm.IsHTML5Selected)
                 {
                     richTextBoxOutput.Text = HTMLHelper.HTML5_DEFAULT;
                 }
-                else if(newTemplateForm.isHTML4Selected)
+                else if(newTemplateForm.IsHTML4Selected)
                 {
                     richTextBoxOutput.Text = HTMLHelper.HTML4_DTD_STRICT;
                 }
@@ -55,6 +58,10 @@ namespace Templater
                 {
                     richTextBoxOutput.Text = HTMLHelper.XHTML_DTD_STRICT;
                 }
+
+                // Get the page title.
+                page.Title = newTemplateForm.Title;
+                Debug.WriteLine(page.Title);
             }
         }
 

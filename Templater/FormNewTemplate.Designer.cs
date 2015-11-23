@@ -29,11 +29,14 @@
         private void InitializeComponent()
         {
             this.groupBoxSelectTemplate = new System.Windows.Forms.GroupBox();
+            this.radioButtonXHTML = new System.Windows.Forms.RadioButton();
             this.radioButtonHTML4 = new System.Windows.Forms.RadioButton();
             this.radioButtonHTML5 = new System.Windows.Forms.RadioButton();
             this.buttonCreateTemplate = new System.Windows.Forms.Button();
-            this.radioButtonXHTML = new System.Windows.Forms.RadioButton();
+            this.groupBoxSetTitle = new System.Windows.Forms.GroupBox();
+            this.textBoxTitle = new System.Windows.Forms.TextBox();
             this.groupBoxSelectTemplate.SuspendLayout();
+            this.groupBoxSetTitle.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBoxSelectTemplate
@@ -47,6 +50,17 @@
             this.groupBoxSelectTemplate.TabIndex = 0;
             this.groupBoxSelectTemplate.TabStop = false;
             this.groupBoxSelectTemplate.Text = "Select a standard";
+            // 
+            // radioButtonXHTML
+            // 
+            this.radioButtonXHTML.AutoSize = true;
+            this.radioButtonXHTML.Location = new System.Drawing.Point(429, 42);
+            this.radioButtonXHTML.Name = "radioButtonXHTML";
+            this.radioButtonXHTML.Size = new System.Drawing.Size(76, 21);
+            this.radioButtonXHTML.TabIndex = 2;
+            this.radioButtonXHTML.TabStop = true;
+            this.radioButtonXHTML.Text = "XHTML";
+            this.radioButtonXHTML.UseVisualStyleBackColor = true;
             // 
             // radioButtonHTML4
             // 
@@ -72,29 +86,36 @@
             // 
             // buttonCreateTemplate
             // 
-            this.buttonCreateTemplate.Location = new System.Drawing.Point(262, 196);
+            this.buttonCreateTemplate.Location = new System.Drawing.Point(262, 212);
             this.buttonCreateTemplate.Name = "buttonCreateTemplate";
             this.buttonCreateTemplate.Size = new System.Drawing.Size(75, 33);
             this.buttonCreateTemplate.TabIndex = 1;
             this.buttonCreateTemplate.Text = "Create";
             this.buttonCreateTemplate.UseVisualStyleBackColor = true;
             // 
-            // radioButtonXHTML
+            // groupBoxSetTitle
             // 
-            this.radioButtonXHTML.AutoSize = true;
-            this.radioButtonXHTML.Location = new System.Drawing.Point(429, 42);
-            this.radioButtonXHTML.Name = "radioButtonXHTML";
-            this.radioButtonXHTML.Size = new System.Drawing.Size(76, 21);
-            this.radioButtonXHTML.TabIndex = 2;
-            this.radioButtonXHTML.TabStop = true;
-            this.radioButtonXHTML.Text = "XHTML";
-            this.radioButtonXHTML.UseVisualStyleBackColor = true;
+            this.groupBoxSetTitle.Controls.Add(this.textBoxTitle);
+            this.groupBoxSetTitle.Location = new System.Drawing.Point(13, 119);
+            this.groupBoxSetTitle.Name = "groupBoxSetTitle";
+            this.groupBoxSetTitle.Size = new System.Drawing.Size(569, 71);
+            this.groupBoxSetTitle.TabIndex = 2;
+            this.groupBoxSetTitle.TabStop = false;
+            this.groupBoxSetTitle.Text = "Set a title";
+            // 
+            // textBoxTitle
+            // 
+            this.textBoxTitle.Location = new System.Drawing.Point(31, 32);
+            this.textBoxTitle.Name = "textBoxTitle";
+            this.textBoxTitle.Size = new System.Drawing.Size(510, 22);
+            this.textBoxTitle.TabIndex = 0;
             // 
             // FormNewTemplate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(594, 251);
+            this.ClientSize = new System.Drawing.Size(594, 269);
+            this.Controls.Add(this.groupBoxSetTitle);
             this.Controls.Add(this.buttonCreateTemplate);
             this.Controls.Add(this.groupBoxSelectTemplate);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -102,6 +123,8 @@
             this.Text = "New Template";
             this.groupBoxSelectTemplate.ResumeLayout(false);
             this.groupBoxSelectTemplate.PerformLayout();
+            this.groupBoxSetTitle.ResumeLayout(false);
+            this.groupBoxSetTitle.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -113,5 +136,7 @@
         private System.Windows.Forms.RadioButton radioButtonHTML5;
         private System.Windows.Forms.Button buttonCreateTemplate;
         private System.Windows.Forms.RadioButton radioButtonXHTML;
+        private System.Windows.Forms.GroupBox groupBoxSetTitle;
+        private System.Windows.Forms.TextBox textBoxTitle;
     }
 }
