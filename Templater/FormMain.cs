@@ -48,20 +48,21 @@ namespace Templater
                 // Set the base template.
                 if(newTemplateForm.IsHTML5Selected)
                 {
-                    richTextBoxOutput.Text = HTMLHelper.HTML5_DEFAULT;
+                    page.Original = HTMLHelper.HTML5_DEFAULT;
                 }
                 else if(newTemplateForm.IsHTML4Selected)
                 {
-                    richTextBoxOutput.Text = HTMLHelper.HTML4_DTD_STRICT;
+                    page.Original = HTMLHelper.HTML4_DTD_STRICT;
                 }
                 else
                 {
-                    richTextBoxOutput.Text = HTMLHelper.XHTML_DTD_STRICT;
+                    page.Original = HTMLHelper.XHTML_DTD_STRICT;
                 }
 
                 // Get the page title.
                 page.Title = newTemplateForm.Title;
-                Debug.WriteLine(page.Title);
+
+                displayTemplate(page.ToString());
             }
         }
 
@@ -109,7 +110,8 @@ namespace Templater
                     }
                     else
                     {
-                        displayTemplate(openFileDialogTemplate.FileName);
+                        string output = File.ReadAllText(openFileDialogTemplate.FileName);
+                        displayTemplate(output);
                     }
                 }
             }
@@ -128,10 +130,10 @@ namespace Templater
         /// <summary>
         /// Displays a HTML template in the output text box from a file.
         /// </summary>
-        /// <param name="fileName">The file name of the template to load.</param>
-        private void displayTemplate(string fileName)
+        /// <param name="output">The file name of the template to load.</param>
+        private void displayTemplate(string output)
         {
-            richTextBoxOutput.LoadFile(fileName, RichTextBoxStreamType.PlainText);
+            richTextBoxOutput.Text = output;
         }
     }
 }
