@@ -45,7 +45,7 @@ namespace Templater
             {
                 richTextBoxOutput.ReadOnly = false;
 
-                // Set the base template.
+                // Set the standard / DTD of the document.
                 if(newTemplateForm.IsHTML5Selected)
                 {
                     page.Original = HTMLHelper.HTML5_DEFAULT;
@@ -59,7 +59,10 @@ namespace Templater
                     page.Original = HTMLHelper.XHTML_DTD_STRICT;
                 }
 
-                // Get the page title.
+                // Include the base tags.
+                page.Original += HTMLHelper.HTML_BASE;
+
+                // Get the page title from the new template form.
                 page.Title = newTemplateForm.Title;
 
                 displayTemplate(page.ToString());
