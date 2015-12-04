@@ -16,6 +16,7 @@ namespace Templater
     {
 
         private FormNewTemplate newTemplateForm;
+        private FormInsertDependencies insertDependenciesForm;
         Template page = new Template();
 
         public FormMain()
@@ -137,6 +138,17 @@ namespace Templater
         private void displayTemplate(string output)
         {
             richTextBoxOutput.Text = output;
+        }
+
+        /// <summary>
+        /// Shows the Insert Dependencies window.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonInsertDependencies_Click(object sender, EventArgs e)
+        {
+            insertDependenciesForm = new FormInsertDependencies();
+            insertDependenciesForm.Show();
         }
     }
 }
