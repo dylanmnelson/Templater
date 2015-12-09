@@ -148,7 +148,7 @@ namespace Templater
         private void buttonInsertDependencies_Click(object sender, EventArgs e)
         {
             insertDependenciesForm = new FormInsertDependencies();
-            insertDependenciesForm.Show();
+            insertDependenciesForm.ShowForm();
         }
     }
 }
