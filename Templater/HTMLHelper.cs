@@ -23,6 +23,11 @@ namespace Templater
         // Dependencies.
         public const string DEPENDENCY_JQUERY_1X = "<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js\"></script>";
         public const string DEPENDENCY_JQUERY_2X = "<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js\"></script>";
+
+        public const string DEPENDENCY_ANGULAR_1_4 = "<script src=\"https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js\"></script>";
+
+        public const string DEPENDENCY_BOOTSTRAP_3_CSS = "<link href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css\" rel=\"stylesheet\">";
+        public const string DEPENDENCY_BOOTSTRAP_3_JS = "<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js\"></script>";
         #endregion
     }
 }

@@ -18,6 +18,12 @@ namespace Templater
         {
             InitializeComponent();
         }
+
+        /// <summary>
+        /// Resets the form trigger on close to allow for another form to be created.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FormInsertDependencies_FormClosed(object sender, FormClosedEventArgs e)
         {
             theForm = null;
