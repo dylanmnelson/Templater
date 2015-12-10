@@ -148,7 +148,31 @@ namespace Templater
         private void buttonInsertDependencies_Click(object sender, EventArgs e)
         {
             insertDependenciesForm = new FormInsertDependencies();
-            insertDependenciesForm.ShowForm();
+            if(insertDependenciesForm.ShowDialog() == DialogResult.OK)
+            {
+
+                // Get dependencies from the form.
+                if(!insertDependenciesForm.IsNoJQuerySelected)
+                {
+
+                    // TODO: check for jQuery script already included, allow it to be edited / removed.
+                    // Check the jQuery version selected.
+                    if(insertDependenciesForm.IsJQuery1xSelected)
+                    {
+                        page.JS.Add(HTMLHelper.DEPENDENCY_JQUERY_1X);
+                    }
+                    else
+                    {
+                        page.JS.Add(HTMLHelper.DEPENDENCY_JQUERY_2X);
+                    }
+
+                    displayTemplate(page.ToString());
+                }
+                else
+                {
+                    // TODO Remove jQuery dependency.
+                }
+            }
         }
     }
 }

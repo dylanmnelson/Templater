@@ -11,7 +11,7 @@ namespace Templater
         private string original;
         private string title;
         private string code;
-        private string js;
+        private List<string> js;
         private string css;
 
         public string Original
@@ -32,7 +32,7 @@ namespace Templater
             set { code = value; }
         }
 
-        public string JS
+        public List<string> JS
         {
             get { return js; }
             set { js = value; }
@@ -47,6 +47,7 @@ namespace Templater
         public Template()
         {
             Code = "";
+            JS = new List<string>();
         }
 
         /// <summary>
@@ -55,6 +56,8 @@ namespace Templater
         /// <returns>The HTML code of the template.</returns>
         public override string ToString()
         {
+
+            // If this is a new template just created, update the title.
             if(this.Code == "")
             {
                 this.Code = this.Original;
@@ -62,6 +65,19 @@ namespace Templater
                 // Replace title placeholder.
                 string newCode = this.Code;
                 newCode = newCode.Replace("<!-- Insert title here -->", this.Title);
+                
+                this.Code = newCode;
+            }
+
+            // Add scripts.
+            if (this.JS.Count > 0)
+            {
+                string[] scripts = this.JS.ToArray();
+                string newCode = this.Code;
+
+                // TODO add more than one script.
+                newCode = newCode.Replace("<!-- Insert scripts here -->", scripts[0]);
+
                 this.Code = newCode;
             }
 

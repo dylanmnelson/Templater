@@ -31,6 +31,8 @@
             this.radioButtonAddJQuery1x = new System.Windows.Forms.RadioButton();
             this.radioButtonAddJQuery2x = new System.Windows.Forms.RadioButton();
             this.radioButtonNoJQuery = new System.Windows.Forms.RadioButton();
+            this.buttonAcceptChanges = new System.Windows.Forms.Button();
+            this.buttonDiscardChanges = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // radioButtonAddJQuery1x
@@ -65,18 +67,37 @@
             this.radioButtonNoJQuery.Text = "No jQuery";
             this.radioButtonNoJQuery.UseVisualStyleBackColor = true;
             // 
+            // buttonAcceptChanges
+            // 
+            this.buttonAcceptChanges.Location = new System.Drawing.Point(107, 260);
+            this.buttonAcceptChanges.Name = "buttonAcceptChanges";
+            this.buttonAcceptChanges.Size = new System.Drawing.Size(133, 33);
+            this.buttonAcceptChanges.TabIndex = 3;
+            this.buttonAcceptChanges.Text = "Accept Changes";
+            this.buttonAcceptChanges.UseVisualStyleBackColor = true;
+            // 
+            // buttonDiscardChanges
+            // 
+            this.buttonDiscardChanges.Location = new System.Drawing.Point(348, 260);
+            this.buttonDiscardChanges.Name = "buttonDiscardChanges";
+            this.buttonDiscardChanges.Size = new System.Drawing.Size(133, 33);
+            this.buttonDiscardChanges.TabIndex = 4;
+            this.buttonDiscardChanges.Text = "Discard Changes";
+            this.buttonDiscardChanges.UseVisualStyleBackColor = true;
+            // 
             // FormInsertDependencies
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(595, 321);
+            this.Controls.Add(this.buttonDiscardChanges);
+            this.Controls.Add(this.buttonAcceptChanges);
             this.Controls.Add(this.radioButtonNoJQuery);
             this.Controls.Add(this.radioButtonAddJQuery2x);
             this.Controls.Add(this.radioButtonAddJQuery1x);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormInsertDependencies";
             this.Text = "Insert Dependencies";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormInsertDependencies_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -87,5 +108,7 @@
         private System.Windows.Forms.RadioButton radioButtonAddJQuery1x;
         private System.Windows.Forms.RadioButton radioButtonAddJQuery2x;
         private System.Windows.Forms.RadioButton radioButtonNoJQuery;
+        private System.Windows.Forms.Button buttonAcceptChanges;
+        private System.Windows.Forms.Button buttonDiscardChanges;
     }
 }
