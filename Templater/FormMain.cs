@@ -148,6 +148,43 @@ namespace Templater
         private void buttonInsertDependencies_Click(object sender, EventArgs e)
         {
             insertDependenciesForm = new FormInsertDependencies();
+
+            // Check for dependencies in the template.
+            if(page.JS.Count > 0)
+            {
+
+                // Detect jQuery version in the template.
+                for(int dep = 0; dep < page.JS.Count; dep++)
+                {
+                    if(page.JS[dep].Contains("jquery"))
+                    {
+                        if(page.JS[dep].Contains("1.11.3"))
+                        {
+                            insertDependenciesForm.IsJQuery1xSelected = true;
+                        }
+                        else if(page.JS[dep].Contains("2.1.4"))
+                        {
+                            insertDependenciesForm.IsJQuery2xSelected = true;
+                        }
+
+                        // jQuery version has been found, so stop looking.
+                        break;
+                    }
+                    else
+                    {
+                        insertDependenciesForm.IsNoJQuerySelected = true;
+                    }
+                }
+            }
+            else
+            {
+
+                // Clear JS dependencies.
+                insertDependenciesForm.IsNoJQuerySelected = true;
+                insertDependenciesForm.IsNoBootstrapSelected = true;
+            }
+
+            // Update dependencies once the form has been submitted.
             if(insertDependenciesForm.ShowDialog() == DialogResult.OK)
             {
 

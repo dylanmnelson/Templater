@@ -24,16 +24,30 @@ namespace Templater
         public bool IsNoJQuerySelected
         {
             get { return radioButtonNoJQuery.Checked; }
+            set { radioButtonNoJQuery.Checked = value; }
         }
 
         public bool IsJQuery1xSelected
         {
             get { return radioButtonAddJQuery1x.Checked; }
+            set { radioButtonAddJQuery1x.Checked = value; }
         }
 
         public bool IsJQuery2xSelected
         {
             get { return radioButtonAddJQuery2x.Checked; }
+            set { radioButtonAddJQuery2x.Checked = value; }
+        }
+
+        public bool IsNoBootstrapSelected
+        {
+            get { return radioButtonNoBootstrap.Checked; }
+            set { radioButtonNoBootstrap.Checked = value; }
+        }
+        public bool IsBootstrap3Selected
+        {
+            get { return radioButtonAddBootstrap3.Checked; }
+            set { radioButtonAddBootstrap3.Checked = value; }
         }
     }
 }
