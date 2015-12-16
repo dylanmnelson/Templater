@@ -61,25 +61,36 @@ namespace Templater
             if(this.Code == "")
             {
                 this.Code = this.Original;
-
-                // Replace title placeholder.
-                string newCode = this.Code;
-                newCode = newCode.Replace("<!-- Insert title here -->", this.Title);
-                
-                this.Code = newCode;
+                this.Code += HTMLHelper.HTML_BASE_SCRIPTS + HTMLHelper.HTML_BASE_END;
             }
-
-            // Add scripts.
-            if (this.JS.Count > 0)
+            else
             {
-                string[] scripts = this.JS.ToArray();
-                string newCode = this.Code;
 
-                // TODO add more than one script.
-                newCode = newCode.Replace("<!-- Insert scripts here -->", scripts[0]);
+                // Add scripts if there any.
+                if(this.JS.Count == 0)
+                {
+                    this.Code = this.Original + HTMLHelper.HTML_BASE_SCRIPTS + HTMLHelper.HTML_BASE_END;
+                }
+                else
+                {
+                    string[] scripts = this.JS.ToArray();
+                    string updatedScripts = HTMLHelper.HTML_BASE_SCRIPTS;
+                    string scriptCode = "";
 
-                this.Code = newCode;
+                    foreach (string script in scripts) {
+                        scriptCode += "\n\t\t" + script;
+                    }
+
+                    // TODO add more than one script.
+                    updatedScripts = updatedScripts.Replace("\n\t\t<!-- Insert scripts here -->", scriptCode);
+                    this.Code = this.Original + updatedScripts + HTMLHelper.HTML_BASE_END;
+                }
             }
+
+            // Replace title placeholder.
+            string newCode = this.Code;
+            newCode = newCode.Replace("<!-- Insert title here -->", this.Title);
+            this.Code = newCode;
 
             return this.Code;
         }

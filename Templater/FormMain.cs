@@ -61,7 +61,7 @@ namespace Templater
                 }
 
                 // Include the base tags.
-                page.Original += HTMLHelper.HTML_BASE;
+                page.Original += HTMLHelper.HTML_BASE_START;
 
                 // Get the page title from the new template form.
                 page.Title = newTemplateForm.Title;
@@ -149,7 +149,7 @@ namespace Templater
         {
             insertDependenciesForm = new FormInsertDependencies();
 
-            // Check for dependencies in the template.
+            // Check for dependencies in the template (to check the correct radio buttons).
             if(page.JS.Count > 0)
             {
 
@@ -179,7 +179,7 @@ namespace Templater
             else
             {
 
-                // Clear JS dependencies.
+                // Since there is no JS in the template, the default options should be 'No jQuery' etc.
                 insertDependenciesForm.IsNoJQuerySelected = true;
                 insertDependenciesForm.IsNoBootstrapSelected = true;
             }
@@ -188,27 +188,63 @@ namespace Templater
             if(insertDependenciesForm.ShowDialog() == DialogResult.OK)
             {
 
-                // Get dependencies from the form.
+                // Get jQuery dependency from the form.
                 if(!insertDependenciesForm.IsNoJQuerySelected)
                 {
 
-                    // TODO: check for jQuery script already included, allow it to be edited / removed.
-                    // Check the jQuery version selected.
-                    if(insertDependenciesForm.IsJQuery1xSelected)
+                    // Check for jQuery script already included, allow it to be edited / removed.
+                    bool replace = false;
+                    int index = -1;
+                    for (int dep = 0; dep < page.JS.Count; dep++)
                     {
-                        page.JS.Add(HTMLHelper.DEPENDENCY_JQUERY_1X);
+                        if (page.JS[dep].Contains("jquery"))
+                        {
+                            replace = true;
+                            index = dep;
+                            break;
+                        }
+                    }
+
+                    // Check the jQuery version selected.
+                    if (insertDependenciesForm.IsJQuery1xSelected)
+                    {
+                        if(replace)
+                        {
+                            page.JS[index] = HTMLHelper.DEPENDENCY_JQUERY_1X;
+                        }
+                        else
+                        {
+                            page.JS.Add(HTMLHelper.DEPENDENCY_JQUERY_1X);
+                        }
                     }
                     else
                     {
-                        page.JS.Add(HTMLHelper.DEPENDENCY_JQUERY_2X);
+                        if(replace)
+                        {
+                            page.JS[index] = HTMLHelper.DEPENDENCY_JQUERY_2X;
+                        }
+                        else
+                        {
+                            page.JS.Add(HTMLHelper.DEPENDENCY_JQUERY_2X);
+                        }
                     }
-
-                    displayTemplate(page.ToString());
                 }
                 else
                 {
-                    // TODO Remove jQuery dependency.
+
+                    // Remove jQuery dependency.
+                    for (int dep = 0; dep < page.JS.Count; dep++)
+                    {
+                        if (page.JS[dep].Contains("jquery"))
+                        {
+                            page.JS.RemoveAt(dep);
+                            break;
+                        }
+                    }
                 }
+
+                // Display the updated template.
+                displayTemplate(page.ToString());
             }
         }
     }
