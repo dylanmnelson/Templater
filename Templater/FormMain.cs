@@ -67,6 +67,10 @@ namespace Templater
                 page.Title = newTemplateForm.Title;
 
                 displayTemplate(page.ToString());
+
+                // Updating the UI.
+                buttonInsertDependencies.Enabled = true;
+                saveTemplateToolStripMenuItem.Enabled = true;
             }
         }
 
