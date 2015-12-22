@@ -38,5 +38,15 @@ namespace Templater
         {
             get { return textBoxTitle.Text; }
         }
+
+        public string CustomCSSFilename
+        {
+            get { return textBoxCSSFilename.Text; }
+        }
+
+        public string CustomJSFilename
+        {
+            get { return textBoxJSFilename.Text; }
+        }
     }
 }

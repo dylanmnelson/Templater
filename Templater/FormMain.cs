@@ -66,6 +66,10 @@ namespace Templater
                 // Get the page title from the new template form.
                 page.Title = newTemplateForm.Title;
 
+                // Get the custom JS and CSS files from the form.
+                page.CustomCSS = newTemplateForm.CustomCSSFilename;
+                page.CustomJS = newTemplateForm.CustomJSFilename;
+
                 displayTemplate(page.ToString());
 
                 // Updating the UI.

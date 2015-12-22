@@ -12,7 +12,9 @@ namespace Templater
         private string title;
         private string code;
         private List<string> js;
-        private string css;
+        private List<string> css;
+        private string customCss;
+        private string customJs;
 
         public string Original
         {
@@ -38,16 +40,30 @@ namespace Templater
             set { js = value; }
         }
 
-        public string CSS
+        public List<string> CSS
         {
             get { return css; }
             set { css = value; }
+        }
+
+        public string CustomCSS
+        {
+            get { return customCss; }
+            set { customCss = value; }
+        }
+
+        public string CustomJS
+        {
+            get { return customJs; }
+            set { customJs = value; }
         }
 
         public Template()
         {
             Code = "";
             JS = new List<string>();
+            CustomCSS = "";
+            CustomJS = "";
         }
 
         /// <summary>
@@ -63,29 +79,36 @@ namespace Templater
                 this.Code = this.Original;
                 this.Code += HTMLHelper.HTML_BASE_SCRIPTS + HTMLHelper.HTML_BASE_END;
             }
+
+            // Add scripts if there any.
+            if(this.JS.Count == 0 && this.CustomJS == "")
+            {
+                this.Code = this.Original + HTMLHelper.HTML_BASE_SCRIPTS + HTMLHelper.HTML_BASE_END;
+            }
             else
             {
+                string[] scripts = this.JS.ToArray();
+                string updatedScripts = HTMLHelper.HTML_BASE_SCRIPTS;
+                string scriptCode = "";
 
-                // Add scripts if there any.
-                if(this.JS.Count == 0)
-                {
-                    this.Code = this.Original + HTMLHelper.HTML_BASE_SCRIPTS + HTMLHelper.HTML_BASE_END;
+                // Add each script.
+                foreach (string script in scripts) {
+                    scriptCode += "\n\t\t" + script;
                 }
-                else
+
+                // Add the custom JS file if there is one.
+                if(this.CustomJS != "")
                 {
-                    string[] scripts = this.JS.ToArray();
-                    string updatedScripts = HTMLHelper.HTML_BASE_SCRIPTS;
-                    string scriptCode = "";
-
-                    foreach (string script in scripts) {
-                        scriptCode += "\n\t\t" + script;
-                    }
-
-                    // TODO add more than one script.
-                    updatedScripts = updatedScripts.Replace("\n\t\t<!-- Insert scripts here -->", scriptCode);
-                    this.Code = this.Original + updatedScripts + HTMLHelper.HTML_BASE_END;
+                    scriptCode += "\n\t\t<script src=\"" + this.CustomJS + ".js\"></script>";
                 }
+                    
+                // Replace the scripts placeholder with the new script list.
+                updatedScripts = updatedScripts.Replace("\n\t\t<!-- Insert scripts here -->", scriptCode);
+
+                this.Code = this.Original + updatedScripts + HTMLHelper.HTML_BASE_END;
             }
+
+            // TODO show CSS files.
 
             // Replace title placeholder.
             string newCode = this.Code;
