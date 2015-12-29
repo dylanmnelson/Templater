@@ -41,14 +41,18 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.richTextBoxOutput = new System.Windows.Forms.RichTextBox();
-            this.buttonInsertDependencies = new System.Windows.Forms.Button();
             this.statusStripInfo = new System.Windows.Forms.StatusStrip();
             this.statusLabelFileSaved = new System.Windows.Forms.ToolStripStatusLabel();
+            this.panelButtons = new System.Windows.Forms.Panel();
+            this.buttonEditBodyContent = new System.Windows.Forms.Button();
+            this.buttonEditCustomFiles = new System.Windows.Forms.Button();
+            this.buttonInsertDependencies = new System.Windows.Forms.Button();
             this.saveFileDialogTemplate = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialogTemplate = new System.Windows.Forms.OpenFileDialog();
             this.menuStripMain.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.statusStripInfo.SuspendLayout();
+            this.panelButtons.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStripMain
@@ -140,8 +144,8 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
             this.tableLayoutPanel1.Controls.Add(this.richTextBoxOutput, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.buttonInsertDependencies, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.statusStripInfo, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.panelButtons, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 28);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -149,6 +153,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(851, 539);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
@@ -164,21 +169,6 @@
             this.richTextBoxOutput.Size = new System.Drawing.Size(645, 510);
             this.richTextBoxOutput.TabIndex = 0;
             this.richTextBoxOutput.Text = "";
-            // 
-            // buttonInsertDependencies
-            // 
-            this.buttonInsertDependencies.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonInsertDependencies.AutoSize = true;
-            this.buttonInsertDependencies.Enabled = false;
-            this.buttonInsertDependencies.Location = new System.Drawing.Point(654, 2);
-            this.buttonInsertDependencies.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonInsertDependencies.Name = "buttonInsertDependencies";
-            this.buttonInsertDependencies.Size = new System.Drawing.Size(194, 33);
-            this.buttonInsertDependencies.TabIndex = 1;
-            this.buttonInsertDependencies.Text = "Insert Dependencies";
-            this.buttonInsertDependencies.UseVisualStyleBackColor = true;
-            this.buttonInsertDependencies.Click += new System.EventHandler(this.buttonInsertDependencies_Click);
             // 
             // statusStripInfo
             // 
@@ -197,6 +187,62 @@
             // 
             this.statusLabelFileSaved.Name = "statusLabelFileSaved";
             this.statusLabelFileSaved.Size = new System.Drawing.Size(0, 17);
+            // 
+            // panelButtons
+            // 
+            this.panelButtons.Controls.Add(this.buttonEditBodyContent);
+            this.panelButtons.Controls.Add(this.buttonEditCustomFiles);
+            this.panelButtons.Controls.Add(this.buttonInsertDependencies);
+            this.panelButtons.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelButtons.Location = new System.Drawing.Point(654, 3);
+            this.panelButtons.Name = "panelButtons";
+            this.panelButtons.Size = new System.Drawing.Size(194, 508);
+            this.panelButtons.TabIndex = 3;
+            // 
+            // buttonEditBodyContent
+            // 
+            this.buttonEditBodyContent.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonEditBodyContent.AutoSize = true;
+            this.buttonEditBodyContent.Enabled = false;
+            this.buttonEditBodyContent.Location = new System.Drawing.Point(0, 102);
+            this.buttonEditBodyContent.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonEditBodyContent.Name = "buttonEditBodyContent";
+            this.buttonEditBodyContent.Size = new System.Drawing.Size(194, 33);
+            this.buttonEditBodyContent.TabIndex = 4;
+            this.buttonEditBodyContent.Text = "Edit Body Content";
+            this.buttonEditBodyContent.UseVisualStyleBackColor = true;
+            this.buttonEditBodyContent.Click += new System.EventHandler(this.buttonEditBodyContent_Click);
+            // 
+            // buttonEditCustomFiles
+            // 
+            this.buttonEditCustomFiles.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonEditCustomFiles.AutoSize = true;
+            this.buttonEditCustomFiles.Enabled = false;
+            this.buttonEditCustomFiles.Location = new System.Drawing.Point(0, 51);
+            this.buttonEditCustomFiles.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonEditCustomFiles.Name = "buttonEditCustomFiles";
+            this.buttonEditCustomFiles.Size = new System.Drawing.Size(194, 33);
+            this.buttonEditCustomFiles.TabIndex = 3;
+            this.buttonEditCustomFiles.Text = "Edit Custom CSS / JS Files";
+            this.buttonEditCustomFiles.UseVisualStyleBackColor = true;
+            this.buttonEditCustomFiles.Click += new System.EventHandler(this.buttonEditCustomFiles_Click);
+            // 
+            // buttonInsertDependencies
+            // 
+            this.buttonInsertDependencies.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonInsertDependencies.AutoSize = true;
+            this.buttonInsertDependencies.Enabled = false;
+            this.buttonInsertDependencies.Location = new System.Drawing.Point(0, 0);
+            this.buttonInsertDependencies.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonInsertDependencies.Name = "buttonInsertDependencies";
+            this.buttonInsertDependencies.Size = new System.Drawing.Size(194, 33);
+            this.buttonInsertDependencies.TabIndex = 2;
+            this.buttonInsertDependencies.Text = "Insert Dependencies";
+            this.buttonInsertDependencies.UseVisualStyleBackColor = true;
+            this.buttonInsertDependencies.Click += new System.EventHandler(this.buttonInsertDependencies_Click);
             // 
             // saveFileDialogTemplate
             // 
@@ -228,6 +274,8 @@
             this.tableLayoutPanel1.PerformLayout();
             this.statusStripInfo.ResumeLayout(false);
             this.statusStripInfo.PerformLayout();
+            this.panelButtons.ResumeLayout(false);
+            this.panelButtons.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -244,7 +292,6 @@
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.RichTextBox richTextBoxOutput;
-        private System.Windows.Forms.Button buttonInsertDependencies;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem saveTemplateToolStripMenuItem;
@@ -252,6 +299,10 @@
         private System.Windows.Forms.StatusStrip statusStripInfo;
         private System.Windows.Forms.ToolStripStatusLabel statusLabelFileSaved;
         private System.Windows.Forms.OpenFileDialog openFileDialogTemplate;
+        private System.Windows.Forms.Panel panelButtons;
+        private System.Windows.Forms.Button buttonInsertDependencies;
+        private System.Windows.Forms.Button buttonEditBodyContent;
+        private System.Windows.Forms.Button buttonEditCustomFiles;
     }
 }
 

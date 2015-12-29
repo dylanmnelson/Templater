@@ -17,6 +17,9 @@ namespace Templater
 
         private FormNewTemplate newTemplateForm;
         private FormInsertDependencies insertDependenciesForm;
+        private FormCustomFiles customFilesForm;
+        private FormBodyContent bodyContentForm;
+
         Template page = new Template();
 
         public FormMain()
@@ -74,6 +77,8 @@ namespace Templater
 
                 // Updating the UI.
                 buttonInsertDependencies.Enabled = true;
+                buttonEditCustomFiles.Enabled = true;
+                buttonEditBodyContent.Enabled = true;
                 saveTemplateToolStripMenuItem.Enabled = true;
             }
         }
@@ -254,6 +259,28 @@ namespace Templater
                 // Display the updated template.
                 displayTemplate(page.ToString());
             }
+        }
+
+        /// <summary>
+        /// Shows the Custom Files window, will pull the CSS and JS file name and allow them to be editable.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonEditCustomFiles_Click(object sender, EventArgs e)
+        {
+            customFilesForm = new FormCustomFiles();
+            customFilesForm.ShowDialog();
+        }
+
+        /// <summary>
+        /// Shows the Body Content window.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonEditBodyContent_Click(object sender, EventArgs e)
+        {
+            bodyContentForm = new FormBodyContent();
+            bodyContentForm.ShowDialog();
         }
     }
 }
