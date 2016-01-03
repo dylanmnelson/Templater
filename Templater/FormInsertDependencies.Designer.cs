@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormInsertDependencies));
             this.radioButtonAddJQuery1x = new System.Windows.Forms.RadioButton();
             this.radioButtonAddJQuery2x = new System.Windows.Forms.RadioButton();
             this.radioButtonNoJQuery = new System.Windows.Forms.RadioButton();
@@ -145,6 +146,7 @@
             this.Controls.Add(this.groupBoxJQuery);
             this.Controls.Add(this.buttonDiscardChanges);
             this.Controls.Add(this.buttonAcceptChanges);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormInsertDependencies";
             this.Text = "Insert Dependencies";

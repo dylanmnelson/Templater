@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNewTemplate));
             this.groupBoxSelectTemplate = new System.Windows.Forms.GroupBox();
             this.labelSelectStandard = new System.Windows.Forms.Label();
             this.radioButtonXHTML = new System.Windows.Forms.RadioButton();
@@ -37,9 +38,9 @@
             this.groupBoxSetTitle = new System.Windows.Forms.GroupBox();
             this.textBoxTitle = new System.Windows.Forms.TextBox();
             this.groupBoxCSSFilename = new System.Windows.Forms.GroupBox();
-            this.groupBoxJSFilename = new System.Windows.Forms.GroupBox();
-            this.textBoxCSSFilename = new System.Windows.Forms.TextBox();
             this.labelCSSFilename = new System.Windows.Forms.Label();
+            this.textBoxCSSFilename = new System.Windows.Forms.TextBox();
+            this.groupBoxJSFilename = new System.Windows.Forms.GroupBox();
             this.labelJSFilename = new System.Windows.Forms.Label();
             this.textBoxJSFilename = new System.Windows.Forms.TextBox();
             this.groupBoxSelectTemplate.SuspendLayout();
@@ -150,6 +151,22 @@
             this.groupBoxCSSFilename.TabStop = false;
             this.groupBoxCSSFilename.Text = "Set custom CSS filename";
             // 
+            // labelCSSFilename
+            // 
+            this.labelCSSFilename.AutoSize = true;
+            this.labelCSSFilename.Location = new System.Drawing.Point(231, 33);
+            this.labelCSSFilename.Name = "labelCSSFilename";
+            this.labelCSSFilename.Size = new System.Drawing.Size(33, 17);
+            this.labelCSSFilename.TabIndex = 1;
+            this.labelCSSFilename.Text = ".css";
+            // 
+            // textBoxCSSFilename
+            // 
+            this.textBoxCSSFilename.Location = new System.Drawing.Point(31, 31);
+            this.textBoxCSSFilename.Name = "textBoxCSSFilename";
+            this.textBoxCSSFilename.Size = new System.Drawing.Size(188, 22);
+            this.textBoxCSSFilename.TabIndex = 0;
+            // 
             // groupBoxJSFilename
             // 
             this.groupBoxJSFilename.Controls.Add(this.labelJSFilename);
@@ -160,22 +177,6 @@
             this.groupBoxJSFilename.TabIndex = 4;
             this.groupBoxJSFilename.TabStop = false;
             this.groupBoxJSFilename.Text = "Set custom JS filename";
-            // 
-            // textBoxCSSFilename
-            // 
-            this.textBoxCSSFilename.Location = new System.Drawing.Point(31, 31);
-            this.textBoxCSSFilename.Name = "textBoxCSSFilename";
-            this.textBoxCSSFilename.Size = new System.Drawing.Size(188, 22);
-            this.textBoxCSSFilename.TabIndex = 0;
-            // 
-            // labelCSSFilename
-            // 
-            this.labelCSSFilename.AutoSize = true;
-            this.labelCSSFilename.Location = new System.Drawing.Point(231, 33);
-            this.labelCSSFilename.Name = "labelCSSFilename";
-            this.labelCSSFilename.Size = new System.Drawing.Size(33, 17);
-            this.labelCSSFilename.TabIndex = 1;
-            this.labelCSSFilename.Text = ".css";
             // 
             // labelJSFilename
             // 
@@ -204,6 +205,7 @@
             this.Controls.Add(this.buttonCreateTemplate);
             this.Controls.Add(this.groupBoxSelectTemplate);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormNewTemplate";
             this.Text = "New Template";

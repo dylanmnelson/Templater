@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCustomFiles));
             this.labelJSFilename = new System.Windows.Forms.Label();
             this.textBoxJSFilename = new System.Windows.Forms.TextBox();
             this.groupBoxEditJSFilename = new System.Windows.Forms.GroupBox();
@@ -43,30 +44,29 @@
             // labelJSFilename
             // 
             this.labelJSFilename.AutoSize = true;
-            this.labelJSFilename.Location = new System.Drawing.Point(175, 27);
-            this.labelJSFilename.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelJSFilename.Location = new System.Drawing.Point(233, 33);
             this.labelJSFilename.Name = "labelJSFilename";
-            this.labelJSFilename.Size = new System.Drawing.Size(17, 13);
+            this.labelJSFilename.Size = new System.Drawing.Size(22, 17);
             this.labelJSFilename.TabIndex = 6;
             this.labelJSFilename.Text = ".js";
             // 
             // textBoxJSFilename
             // 
-            this.textBoxJSFilename.Location = new System.Drawing.Point(21, 25);
-            this.textBoxJSFilename.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxJSFilename.Location = new System.Drawing.Point(28, 31);
+            this.textBoxJSFilename.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxJSFilename.Name = "textBoxJSFilename";
-            this.textBoxJSFilename.Size = new System.Drawing.Size(142, 20);
+            this.textBoxJSFilename.Size = new System.Drawing.Size(188, 22);
             this.textBoxJSFilename.TabIndex = 5;
             // 
             // groupBoxEditJSFilename
             // 
             this.groupBoxEditJSFilename.Controls.Add(this.labelJSFilename);
             this.groupBoxEditJSFilename.Controls.Add(this.textBoxJSFilename);
-            this.groupBoxEditJSFilename.Location = new System.Drawing.Point(225, 10);
-            this.groupBoxEditJSFilename.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBoxEditJSFilename.Location = new System.Drawing.Point(300, 12);
+            this.groupBoxEditJSFilename.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBoxEditJSFilename.Name = "groupBoxEditJSFilename";
-            this.groupBoxEditJSFilename.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBoxEditJSFilename.Size = new System.Drawing.Size(210, 58);
+            this.groupBoxEditJSFilename.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxEditJSFilename.Size = new System.Drawing.Size(280, 71);
             this.groupBoxEditJSFilename.TabIndex = 6;
             this.groupBoxEditJSFilename.TabStop = false;
             this.groupBoxEditJSFilename.Text = "Edit custom JS file name / path";
@@ -74,63 +74,64 @@
             // labelCSSFilename
             // 
             this.labelCSSFilename.AutoSize = true;
-            this.labelCSSFilename.Location = new System.Drawing.Point(173, 27);
-            this.labelCSSFilename.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelCSSFilename.Location = new System.Drawing.Point(231, 33);
             this.labelCSSFilename.Name = "labelCSSFilename";
-            this.labelCSSFilename.Size = new System.Drawing.Size(26, 13);
+            this.labelCSSFilename.Size = new System.Drawing.Size(33, 17);
             this.labelCSSFilename.TabIndex = 1;
             this.labelCSSFilename.Text = ".css";
             // 
             // textBoxCSSFilename
             // 
-            this.textBoxCSSFilename.Location = new System.Drawing.Point(23, 25);
-            this.textBoxCSSFilename.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxCSSFilename.Location = new System.Drawing.Point(31, 31);
+            this.textBoxCSSFilename.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxCSSFilename.Name = "textBoxCSSFilename";
-            this.textBoxCSSFilename.Size = new System.Drawing.Size(142, 20);
+            this.textBoxCSSFilename.Size = new System.Drawing.Size(188, 22);
             this.textBoxCSSFilename.TabIndex = 0;
             // 
             // groupBoxEditCSSFilename
             // 
             this.groupBoxEditCSSFilename.Controls.Add(this.labelCSSFilename);
             this.groupBoxEditCSSFilename.Controls.Add(this.textBoxCSSFilename);
-            this.groupBoxEditCSSFilename.Location = new System.Drawing.Point(9, 10);
-            this.groupBoxEditCSSFilename.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBoxEditCSSFilename.Location = new System.Drawing.Point(12, 12);
+            this.groupBoxEditCSSFilename.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBoxEditCSSFilename.Name = "groupBoxEditCSSFilename";
-            this.groupBoxEditCSSFilename.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBoxEditCSSFilename.Size = new System.Drawing.Size(210, 58);
+            this.groupBoxEditCSSFilename.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxEditCSSFilename.Size = new System.Drawing.Size(280, 71);
             this.groupBoxEditCSSFilename.TabIndex = 5;
             this.groupBoxEditCSSFilename.TabStop = false;
             this.groupBoxEditCSSFilename.Text = "Edit custom CSS file name / path";
             // 
             // buttonDiscardChanges
             // 
-            this.buttonDiscardChanges.Location = new System.Drawing.Point(264, 104);
-            this.buttonDiscardChanges.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonDiscardChanges.Location = new System.Drawing.Point(352, 128);
+            this.buttonDiscardChanges.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonDiscardChanges.Name = "buttonDiscardChanges";
-            this.buttonDiscardChanges.Size = new System.Drawing.Size(100, 27);
+            this.buttonDiscardChanges.Size = new System.Drawing.Size(133, 33);
             this.buttonDiscardChanges.TabIndex = 8;
             this.buttonDiscardChanges.Text = "Discard Changes";
             this.buttonDiscardChanges.UseVisualStyleBackColor = true;
             // 
             // buttonAcceptChanges
             // 
-            this.buttonAcceptChanges.Location = new System.Drawing.Point(83, 104);
-            this.buttonAcceptChanges.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonAcceptChanges.Location = new System.Drawing.Point(111, 128);
+            this.buttonAcceptChanges.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonAcceptChanges.Name = "buttonAcceptChanges";
-            this.buttonAcceptChanges.Size = new System.Drawing.Size(100, 27);
+            this.buttonAcceptChanges.Size = new System.Drawing.Size(133, 33);
             this.buttonAcceptChanges.TabIndex = 7;
             this.buttonAcceptChanges.Text = "Accept Changes";
             this.buttonAcceptChanges.UseVisualStyleBackColor = true;
             // 
             // FormCustomFiles
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(446, 157);
+            this.ClientSize = new System.Drawing.Size(595, 193);
             this.Controls.Add(this.buttonDiscardChanges);
             this.Controls.Add(this.buttonAcceptChanges);
             this.Controls.Add(this.groupBoxEditJSFilename);
             this.Controls.Add(this.groupBoxEditCSSFilename);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormCustomFiles";
             this.Text = "Edit Custom Files";
             this.groupBoxEditJSFilename.ResumeLayout(false);
