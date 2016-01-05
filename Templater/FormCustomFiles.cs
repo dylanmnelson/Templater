@@ -22,14 +22,16 @@ namespace Templater
             this.buttonDiscardChanges.DialogResult = DialogResult.Cancel;
         }
 
-        public string CustomCSSFilenameEdit
+        public string CustomCSSFilename
         {
             get { return textBoxCSSFilename.Text; }
+            set { textBoxCSSFilename.Text = value; }
         }
 
-        public string CustomJSFilenameEdit
+        public string CustomJSFilename
         {
             get { return textBoxJSFilename.Text; }
+            set { textBoxJSFilename.Text = value; }
         }
     }
 }

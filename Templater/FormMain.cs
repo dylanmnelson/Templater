@@ -197,7 +197,7 @@ namespace Templater
                 insertDependenciesForm.IsNoBootstrapSelected = true;
             }
 
-            // Update dependencies once the form has been submitted.
+            // Show the form now, and update dependencies once the form has been submitted.
             if(insertDependenciesForm.ShowDialog() == DialogResult.OK)
             {
 
@@ -269,7 +269,21 @@ namespace Templater
         private void buttonEditCustomFiles_Click(object sender, EventArgs e)
         {
             customFilesForm = new FormCustomFiles();
-            customFilesForm.ShowDialog();
+
+            // Pull the file names from the template to allow editing.
+            customFilesForm.CustomJSFilename = page.CustomJS;
+            customFilesForm.CustomCSSFilename = page.CustomCSS;
+
+            // Show the form.
+            if(customFilesForm.ShowDialog() == DialogResult.OK)
+            {
+                // Set the new file names once the form has been submitted.
+                page.CustomJS = customFilesForm.CustomJSFilename;
+                page.CustomCSS = customFilesForm.CustomCSSFilename;
+
+                // Display the updated template.
+                displayTemplate(page.ToString());
+            }
         }
 
         /// <summary>
