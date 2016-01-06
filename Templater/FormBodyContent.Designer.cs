@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormBodyContent));
             this.groupBoxBodyContent = new System.Windows.Forms.GroupBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.richTextBoxBody = new System.Windows.Forms.RichTextBox();
             this.buttonDiscardChanges = new System.Windows.Forms.Button();
             this.buttonAcceptChanges = new System.Windows.Forms.Button();
             this.groupBoxBodyContent.SuspendLayout();
@@ -38,24 +38,24 @@
             // 
             // groupBoxBodyContent
             // 
-            this.groupBoxBodyContent.Controls.Add(this.richTextBox1);
+            this.groupBoxBodyContent.Controls.Add(this.richTextBoxBody);
             this.groupBoxBodyContent.Location = new System.Drawing.Point(17, 16);
-            this.groupBoxBodyContent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxBodyContent.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxBodyContent.Name = "groupBoxBodyContent";
-            this.groupBoxBodyContent.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxBodyContent.Padding = new System.Windows.Forms.Padding(4);
             this.groupBoxBodyContent.Size = new System.Drawing.Size(561, 359);
             this.groupBoxBodyContent.TabIndex = 0;
             this.groupBoxBodyContent.TabStop = false;
             this.groupBoxBodyContent.Text = "Add your template body content";
             // 
-            // richTextBox1
+            // richTextBoxBody
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(9, 25);
-            this.richTextBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(543, 326);
-            this.richTextBox1.TabIndex = 0;
-            this.richTextBox1.Text = "";
+            this.richTextBoxBody.Location = new System.Drawing.Point(9, 25);
+            this.richTextBoxBody.Margin = new System.Windows.Forms.Padding(4);
+            this.richTextBoxBody.Name = "richTextBoxBody";
+            this.richTextBoxBody.Size = new System.Drawing.Size(543, 326);
+            this.richTextBoxBody.TabIndex = 0;
+            this.richTextBoxBody.Text = "";
             // 
             // buttonDiscardChanges
             // 
@@ -86,7 +86,7 @@
             this.Controls.Add(this.buttonAcceptChanges);
             this.Controls.Add(this.groupBoxBodyContent);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormBodyContent";
             this.Text = "Edit Body Content";
             this.groupBoxBodyContent.ResumeLayout(false);
@@ -97,7 +97,7 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBoxBodyContent;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox richTextBoxBody;
         private System.Windows.Forms.Button buttonDiscardChanges;
         private System.Windows.Forms.Button buttonAcceptChanges;
     }

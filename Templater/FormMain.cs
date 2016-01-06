@@ -277,6 +277,7 @@ namespace Templater
             // Show the form.
             if(customFilesForm.ShowDialog() == DialogResult.OK)
             {
+
                 // Set the new file names once the form has been submitted.
                 page.CustomJS = customFilesForm.CustomJSFilename;
                 page.CustomCSS = customFilesForm.CustomCSSFilename;
@@ -294,7 +295,18 @@ namespace Templater
         private void buttonEditBodyContent_Click(object sender, EventArgs e)
         {
             bodyContentForm = new FormBodyContent();
-            bodyContentForm.ShowDialog();
+
+            // Pull the body from the template to allow editing.
+            bodyContentForm.Body = page.Body;
+
+            // Show the form.
+            if(bodyContentForm.ShowDialog() == DialogResult.OK)
+            {
+                page.Body = bodyContentForm.Body;
+
+                // Display the updated template.
+                displayTemplate(page.ToString());
+            }
         }
     }
 }

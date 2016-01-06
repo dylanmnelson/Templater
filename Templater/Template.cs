@@ -15,6 +15,7 @@ namespace Templater
         private List<string> css;
         private string customCss;
         private string customJs;
+        private string body;
 
         public string Original
         {
@@ -58,12 +59,19 @@ namespace Templater
             set { customJs = value; }
         }
 
+        public string Body
+        {
+            get { return body; }
+            set { body = value; }
+        }
+
         public Template()
         {
             Code = "";
             JS = new List<string>();
             CustomCSS = "";
             CustomJS = "";
+            Body = "";
         }
 
         /// <summary>
@@ -114,6 +122,13 @@ namespace Templater
             string newCode = this.Code;
             newCode = newCode.Replace("<!-- Insert title here -->", this.Title);
             this.Code = newCode;
+
+            // Replace common body content, if it's not empty.
+            if (this.Body != "")
+            {
+                newCode = newCode.Replace("<!-- Start body content -->", this.Body);
+                this.Code = newCode;
+            }
 
             return this.Code;
         }

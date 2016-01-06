@@ -20,5 +20,11 @@ namespace Templater
             this.CancelButton = buttonDiscardChanges;
             this.buttonDiscardChanges.DialogResult = DialogResult.Cancel;
         }
+
+        public string Body
+        {
+            get { return richTextBoxBody.Text; }
+            set { richTextBoxBody.Text = value; }
+        }
     }
 }
