@@ -50,6 +50,7 @@
             // 
             // richTextBoxBody
             // 
+            this.richTextBoxBody.AcceptsTab = true;
             this.richTextBoxBody.Location = new System.Drawing.Point(9, 25);
             this.richTextBoxBody.Margin = new System.Windows.Forms.Padding(4);
             this.richTextBoxBody.Name = "richTextBoxBody";

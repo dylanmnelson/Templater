@@ -16,7 +16,6 @@ namespace Templater
         {
             InitializeComponent();
             this.AcceptButton = buttonAcceptChanges;
-            this.AcceptButton = buttonAcceptChanges;
             this.buttonAcceptChanges.DialogResult = DialogResult.OK;
             this.CancelButton = buttonDiscardChanges;
             this.buttonDiscardChanges.DialogResult = DialogResult.Cancel;
