@@ -69,6 +69,7 @@ namespace Templater
         {
             Code = "";
             JS = new List<string>();
+            CSS = new List<string>();
             CustomCSS = "";
             CustomJS = "";
             Body = "";
@@ -116,7 +117,31 @@ namespace Templater
                 this.Code = this.Original + updatedScripts + HTMLHelper.HTML_BASE_END;
             }
 
-            // TODO show CSS files.
+            // Add CSS files if there are any.
+            if(this.CSS.Count == 0 && this.CustomCSS == "")
+            {
+
+                // TODO: remove CSS files, create new base files helper variable.
+            }
+            else
+            {
+                string[] files = this.CSS.ToArray();
+                string filesCode = "";
+
+                // Add each file.
+                foreach (string file in files)
+                {
+                    filesCode += "\n\t\t" + file;
+                }
+
+                // Add the custom CSS file if there is one.
+                if (this.CustomCSS != "")
+                {
+                    filesCode += "\n\t\t<link href=\"" + this.CustomCSS + ".css\" rel=\"stylesheet\">";
+                }
+
+                this.Code = this.Code.Replace("\n\t\t<!-- Insert CSS here -->", filesCode);
+            }
 
             // Replace title placeholder.
             string newCode = this.Code;

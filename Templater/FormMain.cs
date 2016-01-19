@@ -47,6 +47,10 @@ namespace Templater
             newTemplateForm = new FormNewTemplate();
             if(newTemplateForm.ShowDialog() == DialogResult.OK)
             {
+
+                // Reset the template.
+                page = new Template();
+
                 richTextBoxOutput.ReadOnly = false;
 
                 // Set the standard / DTD of the document.
@@ -188,6 +192,36 @@ namespace Templater
                         insertDependenciesForm.IsNoJQuerySelected = true;
                     }
                 }
+
+                // Detect Bootstrap dependency in the template.
+                for(int dep = 0; dep < page.JS.Count; dep++)
+                {
+                    if(page.JS[dep].Contains("bootstrap"))
+                    {
+
+                        // Bootstrap JS is found, so look for the CSS.
+                        for(int d = 0; d < page.CSS.Count; d++)
+                        {
+                            if(page.CSS[d].Contains("bootstrap"))
+                            {
+                                insertDependenciesForm.IsBootstrap3Selected = true;
+
+                                // Bootstrap CSS and JS have been found.
+                                break;
+                            }
+                            else
+                            {
+                                insertDependenciesForm.IsNoBootstrapSelected = true;
+                            }
+                        }
+                        
+                        break;
+                    }
+                    else
+                    {
+                        insertDependenciesForm.IsNoBootstrapSelected = true;
+                    }
+                }
             }
             else
             {
@@ -251,6 +285,53 @@ namespace Templater
                         if (page.JS[dep].Contains("jquery"))
                         {
                             page.JS.RemoveAt(dep);
+                            break;
+                        }
+                    }
+                }
+
+                // Get Bootstrap dependency from the form.
+                if(insertDependenciesForm.IsBootstrap3Selected)
+                {
+
+                    // Check if Bootstrap is already present, don't add it again if it is.
+                    bool bootstrapPresent = false;
+                    int index = -1;
+                    for (int dep = 0; dep < page.JS.Count; dep++)
+                    {
+                        if (page.JS[dep].Contains("bootstrap"))
+                        {
+                            bootstrapPresent = true;
+                            index = dep;
+                            break;
+                        }
+                    }
+
+                    if(!bootstrapPresent)
+                    {
+                        page.JS.Add(HTMLHelper.DEPENDENCY_BOOTSTRAP_3_JS);
+                        page.CSS.Add(HTMLHelper.DEPENDENCY_BOOTSTRAP_3_CSS);
+                    }
+                }
+                else
+                {
+
+                    // Remove Bootstrap JS.
+                    for (int dep = 0; dep < page.JS.Count; dep++)
+                    {
+                        if (page.JS[dep].Contains("bootstrap"))
+                        {
+                            page.JS.RemoveAt(dep);
+                            break;
+                        }
+                    }
+
+                    // Remove Bootstrap CSS.
+                    for (int dep = 0; dep < page.CSS.Count; dep++)
+                    {
+                        if (page.CSS[dep].Contains("bootstrap"))
+                        {
+                            page.CSS.RemoveAt(dep);
                             break;
                         }
                     }

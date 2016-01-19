@@ -18,7 +18,7 @@ namespace Templater
         public const string XHTML_DTD_STRICT = "<!DOCTYPE html PUBLIC \" -//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">";
         public const string XHTML_DTD_TRANSITIONAL = "<!DOCTYPE html PUBLIC \" -//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">";
         public const string XHTML_DTD_FRAMESET = "<!DOCTYPE html PUBLIC \" -//W3C//DTD XHTML 1.0 Frameset//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd\">";
-        public const string HTML_BASE_START = "\n<html>\n\t<head>\n\t\t<meta charset=\"UTF-8\">\n\t\t<title><!-- Insert title here --></title>\n\t</head>\n\t<body>\n\t\t<!-- Start body content -->\n\t\t<!-- End body content -->";
+        public const string HTML_BASE_START = "\n<html>\n\t<head>\n\t\t<meta charset=\"UTF-8\">\n\t\t<title><!-- Insert title here --></title>\n\t\t<!-- Insert CSS here -->\n\t</head>\n\t<body>\n\t\t<!-- Start body content -->\n\t\t<!-- End body content -->";
         public const string HTML_BASE_SCRIPTS = "\n\t\t<!-- Insert scripts here -->";
         public const string HTML_BASE_END = "\n\t</body>\n</html>";
 
