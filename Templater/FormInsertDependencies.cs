@@ -49,5 +49,21 @@ namespace Templater
             get { return radioButtonAddBootstrap3.Checked; }
             set { radioButtonAddBootstrap3.Checked = value; }
         }
+
+        /// <summary>
+        /// The dependencies will be validated (e.g. jQuery not selected when Bootstrap is)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonAcceptChanges_Click(object sender, EventArgs e)
+        {
+
+            // If a version of Bootstrap is selected and jQuery isn't, display an error message.
+            if(IsNoJQuerySelected && !IsNoBootstrapSelected)
+            {
+                MessageBox.Show("Since Bootstrap depends on jQuery, please add a jQuery version or remove the Bootstrap dependency.", "Dependency Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.DialogResult = DialogResult.None;
+            }
+        }
     }
 }
