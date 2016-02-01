@@ -83,69 +83,60 @@ namespace Templater
                 buttonInsertDependencies.Enabled = true;
                 buttonEditCustomFiles.Enabled = true;
                 buttonEditBodyContent.Enabled = true;
-                saveTemplateToolStripMenuItem.Enabled = true;
+                // saveTemplateSettingsToolStripMenuItem.Enabled = true;
+                exportHTMLTemplateToolStripMenuItem.Enabled = true;
             }
         }
 
         /// <summary>
-        /// Saves the text in the output text box to a HTML file.
+        /// Saves the template settings as a text file.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void saveTemplateToolStripMenuItem_Click(object sender, EventArgs e)
+        private void saveTemplateSettingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if(saveFileDialogTemplate.ShowDialog() == DialogResult.OK && saveFileDialogTemplate.FileName.Length > 0)
-                {
-                    richTextBoxOutput.SaveFile(saveFileDialogTemplate.FileName, RichTextBoxStreamType.PlainText);
-                    statusLabelFileSaved.Text = "File '" + saveFileDialogTemplate.FileName + "' saved successfully";
-                }
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine("Could not save the template file.");
-                throw ex;
-            }
+            
+            // TODO Save the template settings (button is disabled temporarily).
         }
 
         /// <summary>
-        /// Opens a HTML template from the file system.
+        /// Opens a template settings .txt file from the file system
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void openTemplateToolStripMenuItem_Click(object sender, EventArgs e)
+        private void loadTemplateSettingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // TODO Get a text file with template settings (button is disabled temporarily).
 
-            // Get a file from the open file dialog.
-            try
-            {
-                DialogResult result = openFileDialogTemplate.ShowDialog();
-                if(result == DialogResult.OK)
-                {
+            //// Get a file from the open file dialog.
+            //try
+            //{
+            //    DialogResult result = openFileDialogTemplate.ShowDialog();
+            //    if(result == DialogResult.OK)
+            //    {
 
-                    // Check if the file is a HTML file.
-                    if(Path.GetExtension(openFileDialogTemplate.FileName)!= ".html")
-                    {
-                        MessageBox.Show("Template files can only be of type '.html'", "Error: Wrong file type", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    else
-                    {
-                        string output = File.ReadAllText(openFileDialogTemplate.FileName);
-                        displayTemplate(output);
-                    }
-                }
-            }
-            catch (FileLoadException ex)
-            {
-                MessageBox.Show("The template file could not be loaded correctly.", "Error: File not loaded", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                throw ex;
-            }
-            catch (FileNotFoundException ex)
-            {
-                MessageBox.Show("The template file could not be found.", "Error: File not found", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                throw ex;
-            }
+            //        // Check if the file is a HTML file.
+            //        if(Path.GetExtension(openFileDialogTemplate.FileName)!= ".html")
+            //        {
+            //            MessageBox.Show("Template files can only be of type '.html'", "Error: Wrong file type", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //        }
+            //        else
+            //        {
+            //            string output = File.ReadAllText(openFileDialogTemplate.FileName);
+            //            displayTemplate(output);
+            //        }
+            //    }
+            //}
+            //catch (FileLoadException ex)
+            //{
+            //    MessageBox.Show("The template file could not be loaded correctly.", "Error: File not loaded", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    throw ex;
+            //}
+            //catch (FileNotFoundException ex)
+            //{
+            //    MessageBox.Show("The template file could not be found.", "Error: File not found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    throw ex;
+            //}
         }
 
         /// <summary>
@@ -387,6 +378,28 @@ namespace Templater
 
                 // Display the updated template.
                 displayTemplate(page.ToString());
+            }
+        }
+
+        /// <summary>
+        /// Exports the text in the output text box to a HTML file.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void exportHTMLTemplateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (saveFileDialogTemplate.ShowDialog() == DialogResult.OK && saveFileDialogTemplate.FileName.Length > 0)
+                {
+                    richTextBoxOutput.SaveFile(saveFileDialogTemplate.FileName, RichTextBoxStreamType.PlainText);
+                    statusLabelFileSaved.Text = "File '" + saveFileDialogTemplate.FileName + "' saved successfully";
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Could not save the template file.");
+                throw ex;
             }
         }
     }
