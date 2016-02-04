@@ -369,12 +369,12 @@ namespace Templater
             bodyContentForm = new FormBodyContent();
 
             // Pull the body from the template to allow editing.
-            bodyContentForm.Body = page.Body;
+            bodyContentForm.Lines = page.Body;
 
             // Show the form.
             if(bodyContentForm.ShowDialog() == DialogResult.OK)
             {
-                page.Body = bodyContentForm.Body;
+                page.Body = bodyContentForm.Lines;
 
                 // Display the updated template.
                 displayTemplate(page.ToString());

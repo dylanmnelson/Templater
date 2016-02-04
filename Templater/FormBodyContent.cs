@@ -26,5 +26,11 @@ namespace Templater
             get { return richTextBoxBody.Text; }
             set { richTextBoxBody.Text = value; }
         }
+
+        public string[] Lines
+        {
+            get { return richTextBoxBody.Lines; }
+            set { richTextBoxBody.Lines = value; }
+        }
     }
 }

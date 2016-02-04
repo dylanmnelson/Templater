@@ -15,7 +15,7 @@ namespace Templater
         private List<string> css;
         private string customCss;
         private string customJs;
-        private string body;
+        private string[] body;
 
         public string Original
         {
@@ -59,7 +59,7 @@ namespace Templater
             set { customJs = value; }
         }
 
-        public string Body
+        public string[] Body
         {
             get { return body; }
             set { body = value; }
@@ -72,7 +72,7 @@ namespace Templater
             CSS = new List<string>();
             CustomCSS = "";
             CustomJS = "";
-            Body = "";
+            Body = new string[] { };
         }
 
         /// <summary>
@@ -149,9 +149,19 @@ namespace Templater
             this.Code = newCode;
 
             // Replace common body content, if it's not empty.
-            if (this.Body != "")
+            if (this.Body.Length != 0)
             {
-                newCode = newCode.Replace("<!-- Start body content -->", this.Body);
+
+                // Fix up the indentation for the body text.
+                List<string> lines = new List<string>();
+                for (int l = 0; l < this.Body.Length; l++)
+                {
+                    lines.Add("\t\t" + this.Body[l]);
+                }
+
+                string newBody = string.Join("\n", lines.ToArray());
+
+                newCode = newCode.Replace("\t\t<!-- Start body content -->", newBody);
                 this.Code = newCode;
             }
 
