@@ -147,7 +147,7 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(125, 26);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -237,7 +237,7 @@
             this.buttonEditCustomFiles.Location = new System.Drawing.Point(0, 50);
             this.buttonEditCustomFiles.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonEditCustomFiles.Name = "buttonEditCustomFiles";
-            this.buttonEditCustomFiles.Size = new System.Drawing.Size(247, 33);
+            this.buttonEditCustomFiles.Size = new System.Drawing.Size(195, 33);
             this.buttonEditCustomFiles.TabIndex = 3;
             this.buttonEditCustomFiles.Text = "Edit Custom CSS / JS Files";
             this.buttonEditCustomFiles.UseVisualStyleBackColor = true;
@@ -252,7 +252,7 @@
             this.buttonInsertDependencies.Location = new System.Drawing.Point(0, 0);
             this.buttonInsertDependencies.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonInsertDependencies.Name = "buttonInsertDependencies";
-            this.buttonInsertDependencies.Size = new System.Drawing.Size(197, 33);
+            this.buttonInsertDependencies.Size = new System.Drawing.Size(195, 33);
             this.buttonInsertDependencies.TabIndex = 2;
             this.buttonInsertDependencies.Text = "Insert Dependencies";
             this.buttonInsertDependencies.UseVisualStyleBackColor = true;
