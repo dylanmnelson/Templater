@@ -402,5 +402,17 @@ namespace Templater
                 throw ex;
             }
         }
+
+        /// <summary>
+        /// Shows information about the program.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            // TODO: create LinkLabel for Form with Github link
+            MessageBox.Show("Created by Dylan Nelson.", "About Templater");
+        }
     }
 }

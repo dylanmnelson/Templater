@@ -118,12 +118,7 @@ namespace Templater
             }
 
             // Add CSS files if there are any.
-            if(this.CSS.Count == 0 && this.CustomCSS == "")
-            {
-
-                // TODO: remove CSS files, create new base files helper variable.
-            }
-            else
+            if(!(this.CSS.Count == 0 && this.CustomCSS == ""))
             {
                 string[] files = this.CSS.ToArray();
                 string filesCode = "";
