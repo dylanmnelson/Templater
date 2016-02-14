@@ -174,7 +174,7 @@
             // 
             this.richTextBoxOutput.AcceptsTab = true;
             this.richTextBoxOutput.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBoxOutput.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBoxOutput.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBoxOutput.Location = new System.Drawing.Point(3, 2);
             this.richTextBoxOutput.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.richTextBoxOutput.Name = "richTextBoxOutput";

@@ -51,6 +51,7 @@
             // richTextBoxBody
             // 
             this.richTextBoxBody.AcceptsTab = true;
+            this.richTextBoxBody.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBoxBody.Location = new System.Drawing.Point(9, 25);
             this.richTextBoxBody.Margin = new System.Windows.Forms.Padding(4);
             this.richTextBoxBody.Name = "richTextBoxBody";
