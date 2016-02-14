@@ -16,6 +16,7 @@ namespace Templater
         private string customCss;
         private string customJs;
         private string[] body;
+        private float fontSize;
 
         public string Original
         {
@@ -65,6 +66,12 @@ namespace Templater
             set { body = value; }
         }
 
+        public float FontSize
+        {
+            get { return fontSize; }
+            set { fontSize = value; }
+        }
+
         public Template()
         {
             Code = "";
@@ -73,6 +80,7 @@ namespace Templater
             CustomCSS = "";
             CustomJS = "";
             Body = new string[] { };
+            FontSize = 10F;
         }
 
         /// <summary>

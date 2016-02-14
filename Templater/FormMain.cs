@@ -83,6 +83,9 @@ namespace Templater
                 buttonInsertDependencies.Enabled = true;
                 buttonEditCustomFiles.Enabled = true;
                 buttonEditBodyContent.Enabled = true;
+                buttonIncreaseFontSize.Enabled = true;
+                buttonDecreaseFontSize.Enabled = true;
+                labelFontSizeCaption.Text = HTMLHelper.HTML_CODE_FONT_CAPTION + page.FontSize;
                 // saveTemplateSettingsToolStripMenuItem.Enabled = true;
                 exportHTMLTemplateToolStripMenuItem.Enabled = true;
             }
@@ -413,6 +416,32 @@ namespace Templater
 
             // TODO: create LinkLabel for Form with Github link
             MessageBox.Show("Created by Dylan Nelson.", "About Templater");
+        }
+
+        /// <summary>
+        /// Increases the code font size in the output.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonIncreaseFontSize_Click(object sender, EventArgs e)
+        {
+            page.FontSize = page.FontSize + 0.5F;
+            richTextBoxOutput.SelectAll();
+            richTextBoxOutput.SelectionFont = new Font(HTMLHelper.HTML_CODE_FONT, page.FontSize);
+            labelFontSizeCaption.Text = HTMLHelper.HTML_CODE_FONT_CAPTION + page.FontSize;
+        }
+
+        /// <summary>
+        /// Decreases the code font size in the output.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonDecreaseFontSize_Click(object sender, EventArgs e)
+        {
+            page.FontSize = page.FontSize - 0.5F;
+            richTextBoxOutput.SelectAll();
+            richTextBoxOutput.SelectionFont = new Font(HTMLHelper.HTML_CODE_FONT, page.FontSize);
+            labelFontSizeCaption.Text = HTMLHelper.HTML_CODE_FONT_CAPTION + page.FontSize;
         }
     }
 }

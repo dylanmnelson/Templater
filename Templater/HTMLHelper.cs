@@ -22,6 +22,10 @@ namespace Templater
         public const string HTML_BASE_SCRIPTS = "\n\t\t<!-- Insert scripts here -->";
         public const string HTML_BASE_END = "\n\t</body>\n</html>";
 
+        public const string HTML_CODE_FONT = "Consolas";
+        public const string HTML_CODE_FONT_SIZE = "10";
+        public const string HTML_CODE_FONT_CAPTION = "Font size: ";
+
         // Dependencies.
         public const string DEPENDENCY_JQUERY_1X = "<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js\"></script>";
         public const string DEPENDENCY_JQUERY_2X = "<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js\"></script>";

@@ -50,6 +50,9 @@
             this.buttonInsertDependencies = new System.Windows.Forms.Button();
             this.saveFileDialogTemplate = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialogTemplate = new System.Windows.Forms.OpenFileDialog();
+            this.buttonIncreaseFontSize = new System.Windows.Forms.Button();
+            this.buttonDecreaseFontSize = new System.Windows.Forms.Button();
+            this.labelFontSizeCaption = new System.Windows.Forms.Label();
             this.menuStripMain.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.statusStripInfo.SuspendLayout();
@@ -203,6 +206,9 @@
             // 
             // panelButtons
             // 
+            this.panelButtons.Controls.Add(this.labelFontSizeCaption);
+            this.panelButtons.Controls.Add(this.buttonDecreaseFontSize);
+            this.panelButtons.Controls.Add(this.buttonIncreaseFontSize);
             this.panelButtons.Controls.Add(this.buttonEditBodyContent);
             this.panelButtons.Controls.Add(this.buttonEditCustomFiles);
             this.panelButtons.Controls.Add(this.buttonInsertDependencies);
@@ -269,6 +275,36 @@
             this.openFileDialogTemplate.FileName = "openFileDialog1";
             this.openFileDialogTemplate.Filter = "HTML Files (*.html)|*html|All Files (*)|*.*";
             // 
+            // buttonIncreaseFontSize
+            // 
+            this.buttonIncreaseFontSize.Enabled = false;
+            this.buttonIncreaseFontSize.Location = new System.Drawing.Point(153, 151);
+            this.buttonIncreaseFontSize.Name = "buttonIncreaseFontSize";
+            this.buttonIncreaseFontSize.Size = new System.Drawing.Size(33, 33);
+            this.buttonIncreaseFontSize.TabIndex = 5;
+            this.buttonIncreaseFontSize.Text = "+";
+            this.buttonIncreaseFontSize.UseVisualStyleBackColor = true;
+            this.buttonIncreaseFontSize.Click += new System.EventHandler(this.buttonIncreaseFontSize_Click);
+            // 
+            // buttonDecreaseFontSize
+            // 
+            this.buttonDecreaseFontSize.Enabled = false;
+            this.buttonDecreaseFontSize.Location = new System.Drawing.Point(10, 151);
+            this.buttonDecreaseFontSize.Name = "buttonDecreaseFontSize";
+            this.buttonDecreaseFontSize.Size = new System.Drawing.Size(33, 33);
+            this.buttonDecreaseFontSize.TabIndex = 6;
+            this.buttonDecreaseFontSize.Text = "-";
+            this.buttonDecreaseFontSize.UseVisualStyleBackColor = true;
+            this.buttonDecreaseFontSize.Click += new System.EventHandler(this.buttonDecreaseFontSize_Click);
+            // 
+            // labelFontSizeCaption
+            // 
+            this.labelFontSizeCaption.AutoSize = true;
+            this.labelFontSizeCaption.Location = new System.Drawing.Point(46, 159);
+            this.labelFontSizeCaption.Name = "labelFontSizeCaption";
+            this.labelFontSizeCaption.Size = new System.Drawing.Size(0, 17);
+            this.labelFontSizeCaption.TabIndex = 7;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -318,6 +354,9 @@
         private System.Windows.Forms.Button buttonEditBodyContent;
         private System.Windows.Forms.Button buttonEditCustomFiles;
         private System.Windows.Forms.ToolStripMenuItem exportHTMLTemplateToolStripMenuItem;
+        private System.Windows.Forms.Button buttonIncreaseFontSize;
+        private System.Windows.Forms.Button buttonDecreaseFontSize;
+        private System.Windows.Forms.Label labelFontSizeCaption;
     }
 }
 
