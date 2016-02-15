@@ -19,6 +19,7 @@ namespace Templater
         private FormInsertDependencies insertDependenciesForm;
         private FormCustomFiles customFilesForm;
         private FormBodyContent bodyContentForm;
+        private FormAbout aboutForm;
 
         Template page = new Template();
 
@@ -413,9 +414,8 @@ namespace Templater
         /// <param name="e"></param>
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
-            // TODO: create LinkLabel for Form with Github link
-            MessageBox.Show("Created by Dylan Nelson.", "About Templater");
+            aboutForm = new FormAbout();
+            aboutForm.ShowDialog();
         }
 
         /// <summary>
