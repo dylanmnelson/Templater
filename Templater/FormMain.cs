@@ -419,7 +419,7 @@ namespace Templater
         }
 
         /// <summary>
-        /// Increases the code font size in the output.
+        /// Increases the code font size in the output, disables the buttons in the UI if it gets too large.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -429,10 +429,21 @@ namespace Templater
             richTextBoxOutput.SelectAll();
             richTextBoxOutput.SelectionFont = new Font(HTMLHelper.HTML_CODE_FONT, page.FontSize);
             labelFontSizeCaption.Text = HTMLHelper.HTML_CODE_FONT_CAPTION + page.FontSize;
+
+            if (page.FontSize >= 20F)
+            {
+                buttonIncreaseFontSize.Enabled = false;
+            }
+
+            // Re-enable decrease button if it's disabled.
+            if (!buttonDecreaseFontSize.Enabled)
+            {
+                buttonDecreaseFontSize.Enabled = true;
+            }
         }
 
         /// <summary>
-        /// Decreases the code font size in the output.
+        /// Decreases the code font size in the output, disables the buttons in the UI if it gets too small.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -442,6 +453,17 @@ namespace Templater
             richTextBoxOutput.SelectAll();
             richTextBoxOutput.SelectionFont = new Font(HTMLHelper.HTML_CODE_FONT, page.FontSize);
             labelFontSizeCaption.Text = HTMLHelper.HTML_CODE_FONT_CAPTION + page.FontSize;
+
+            if (page.FontSize <= 9F)
+            {
+                buttonDecreaseFontSize.Enabled = false;
+            }
+
+            // Re-enable increase button if it's disabled.
+            if (!buttonIncreaseFontSize.Enabled)
+            {
+                buttonIncreaseFontSize.Enabled = true;
+            }
         }
     }
 }
