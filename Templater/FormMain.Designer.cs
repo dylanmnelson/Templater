@@ -97,7 +97,6 @@
             // 
             // loadTemplateSettingsToolStripMenuItem
             // 
-            this.loadTemplateSettingsToolStripMenuItem.Enabled = false;
             this.loadTemplateSettingsToolStripMenuItem.Name = "loadTemplateSettingsToolStripMenuItem";
             this.loadTemplateSettingsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
             this.loadTemplateSettingsToolStripMenuItem.Size = new System.Drawing.Size(294, 26);
@@ -303,8 +302,7 @@
             // 
             // openFileDialogTemplate
             // 
-            this.openFileDialogTemplate.FileName = "openFileDialog1";
-            this.openFileDialogTemplate.Filter = "HTML Files (*.html)|*html|All Files (*)|*.*";
+            this.openFileDialogTemplate.Filter = "TXT Files (*.txt) |*.txt|All Files |*.*";
             // 
             // exportHTMLTemplate
             // 

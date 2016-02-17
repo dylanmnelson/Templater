@@ -144,35 +144,40 @@ namespace Templater
         {
             // TODO Get a text file with template settings (button is disabled temporarily).
 
-            //// Get a file from the open file dialog.
-            //try
-            //{
-            //    DialogResult result = openFileDialogTemplate.ShowDialog();
-            //    if(result == DialogResult.OK)
-            //    {
+            // Get a file from the open file dialog.
+            try
+            {
+                DialogResult result = openFileDialogTemplate.ShowDialog();
+                if (result == DialogResult.OK)
+                {
 
-            //        // Check if the file is a HTML file.
-            //        if(Path.GetExtension(openFileDialogTemplate.FileName)!= ".html")
-            //        {
-            //            MessageBox.Show("Template files can only be of type '.html'", "Error: Wrong file type", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //        }
-            //        else
-            //        {
-            //            string output = File.ReadAllText(openFileDialogTemplate.FileName);
-            //            displayTemplate(output);
-            //        }
-            //    }
-            //}
-            //catch (FileLoadException ex)
-            //{
-            //    MessageBox.Show("The template file could not be loaded correctly.", "Error: File not loaded", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    throw ex;
-            //}
-            //catch (FileNotFoundException ex)
-            //{
-            //    MessageBox.Show("The template file could not be found.", "Error: File not found", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    throw ex;
-            //}
+                    // Check if the file is a TXT file.
+                    if (Path.GetExtension(openFileDialogTemplate.FileName) != ".txt")
+                    {
+                        MessageBox.Show("Template files can only be of type '.txt'", "Error: Wrong file type", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+
+                        // TODO: File is correct type, read the file and then display the template.
+                        string[] output = File.ReadAllLines(openFileDialogTemplate.FileName);
+                        // string output = File.ReadAllText(openFileDialogTemplate.FileName);
+                        displayTemplate("Title is: " + output[1]);
+
+                        statusLabelFileSaved.Text = "Template settings file '" + openFileDialogTemplate.FileName + "' loaded successfully.";
+                    }
+                }
+            }
+            catch (FileLoadException ex)
+            {
+                MessageBox.Show("The template file could not be loaded correctly.", "Error: File not loaded", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw ex;
+            }
+            catch (FileNotFoundException ex)
+            {
+                MessageBox.Show("The template file could not be found.", "Error: File not found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw ex;
+            }
         }
 
         /// <summary>
