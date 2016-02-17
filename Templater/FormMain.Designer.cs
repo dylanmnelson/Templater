@@ -45,14 +45,15 @@
             this.statusStripInfo = new System.Windows.Forms.StatusStrip();
             this.statusLabelFileSaved = new System.Windows.Forms.ToolStripStatusLabel();
             this.panelButtons = new System.Windows.Forms.Panel();
+            this.labelFontSizeCaption = new System.Windows.Forms.Label();
+            this.buttonDecreaseFontSize = new System.Windows.Forms.Button();
+            this.buttonIncreaseFontSize = new System.Windows.Forms.Button();
             this.buttonEditBodyContent = new System.Windows.Forms.Button();
             this.buttonEditCustomFiles = new System.Windows.Forms.Button();
             this.buttonInsertDependencies = new System.Windows.Forms.Button();
             this.saveFileDialogTemplate = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialogTemplate = new System.Windows.Forms.OpenFileDialog();
-            this.buttonIncreaseFontSize = new System.Windows.Forms.Button();
-            this.buttonDecreaseFontSize = new System.Windows.Forms.Button();
-            this.labelFontSizeCaption = new System.Windows.Forms.Label();
+            this.exportHTMLTemplate = new System.Windows.Forms.SaveFileDialog();
             this.menuStripMain.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.statusStripInfo.SuspendLayout();
@@ -219,6 +220,36 @@
             this.panelButtons.Size = new System.Drawing.Size(194, 510);
             this.panelButtons.TabIndex = 3;
             // 
+            // labelFontSizeCaption
+            // 
+            this.labelFontSizeCaption.AutoSize = true;
+            this.labelFontSizeCaption.Location = new System.Drawing.Point(46, 159);
+            this.labelFontSizeCaption.Name = "labelFontSizeCaption";
+            this.labelFontSizeCaption.Size = new System.Drawing.Size(0, 17);
+            this.labelFontSizeCaption.TabIndex = 7;
+            // 
+            // buttonDecreaseFontSize
+            // 
+            this.buttonDecreaseFontSize.Enabled = false;
+            this.buttonDecreaseFontSize.Location = new System.Drawing.Point(10, 151);
+            this.buttonDecreaseFontSize.Name = "buttonDecreaseFontSize";
+            this.buttonDecreaseFontSize.Size = new System.Drawing.Size(33, 33);
+            this.buttonDecreaseFontSize.TabIndex = 6;
+            this.buttonDecreaseFontSize.Text = "-";
+            this.buttonDecreaseFontSize.UseVisualStyleBackColor = true;
+            this.buttonDecreaseFontSize.Click += new System.EventHandler(this.buttonDecreaseFontSize_Click);
+            // 
+            // buttonIncreaseFontSize
+            // 
+            this.buttonIncreaseFontSize.Enabled = false;
+            this.buttonIncreaseFontSize.Location = new System.Drawing.Point(153, 151);
+            this.buttonIncreaseFontSize.Name = "buttonIncreaseFontSize";
+            this.buttonIncreaseFontSize.Size = new System.Drawing.Size(33, 33);
+            this.buttonIncreaseFontSize.TabIndex = 5;
+            this.buttonIncreaseFontSize.Text = "+";
+            this.buttonIncreaseFontSize.UseVisualStyleBackColor = true;
+            this.buttonIncreaseFontSize.Click += new System.EventHandler(this.buttonIncreaseFontSize_Click);
+            // 
             // buttonEditBodyContent
             // 
             this.buttonEditBodyContent.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -266,44 +297,20 @@
             // 
             // saveFileDialogTemplate
             // 
-            this.saveFileDialogTemplate.DefaultExt = "*.html";
-            this.saveFileDialogTemplate.FileName = "template.html";
-            this.saveFileDialogTemplate.Filter = "HTML File | *.html";
+            this.saveFileDialogTemplate.DefaultExt = "*.txt";
+            this.saveFileDialogTemplate.FileName = "template.txt";
+            this.saveFileDialogTemplate.Filter = "TXT File | *.txt";
             // 
             // openFileDialogTemplate
             // 
             this.openFileDialogTemplate.FileName = "openFileDialog1";
             this.openFileDialogTemplate.Filter = "HTML Files (*.html)|*html|All Files (*)|*.*";
             // 
-            // buttonIncreaseFontSize
+            // exportHTMLTemplate
             // 
-            this.buttonIncreaseFontSize.Enabled = false;
-            this.buttonIncreaseFontSize.Location = new System.Drawing.Point(153, 151);
-            this.buttonIncreaseFontSize.Name = "buttonIncreaseFontSize";
-            this.buttonIncreaseFontSize.Size = new System.Drawing.Size(33, 33);
-            this.buttonIncreaseFontSize.TabIndex = 5;
-            this.buttonIncreaseFontSize.Text = "+";
-            this.buttonIncreaseFontSize.UseVisualStyleBackColor = true;
-            this.buttonIncreaseFontSize.Click += new System.EventHandler(this.buttonIncreaseFontSize_Click);
-            // 
-            // buttonDecreaseFontSize
-            // 
-            this.buttonDecreaseFontSize.Enabled = false;
-            this.buttonDecreaseFontSize.Location = new System.Drawing.Point(10, 151);
-            this.buttonDecreaseFontSize.Name = "buttonDecreaseFontSize";
-            this.buttonDecreaseFontSize.Size = new System.Drawing.Size(33, 33);
-            this.buttonDecreaseFontSize.TabIndex = 6;
-            this.buttonDecreaseFontSize.Text = "-";
-            this.buttonDecreaseFontSize.UseVisualStyleBackColor = true;
-            this.buttonDecreaseFontSize.Click += new System.EventHandler(this.buttonDecreaseFontSize_Click);
-            // 
-            // labelFontSizeCaption
-            // 
-            this.labelFontSizeCaption.AutoSize = true;
-            this.labelFontSizeCaption.Location = new System.Drawing.Point(46, 159);
-            this.labelFontSizeCaption.Name = "labelFontSizeCaption";
-            this.labelFontSizeCaption.Size = new System.Drawing.Size(0, 17);
-            this.labelFontSizeCaption.TabIndex = 7;
+            this.exportHTMLTemplate.DefaultExt = "*.html";
+            this.exportHTMLTemplate.FileName = "template.html";
+            this.exportHTMLTemplate.Filter = "HTML File | *.html";
             // 
             // FormMain
             // 
@@ -357,6 +364,7 @@
         private System.Windows.Forms.Button buttonIncreaseFontSize;
         private System.Windows.Forms.Button buttonDecreaseFontSize;
         private System.Windows.Forms.Label labelFontSizeCaption;
+        private System.Windows.Forms.SaveFileDialog exportHTMLTemplate;
     }
 }
 

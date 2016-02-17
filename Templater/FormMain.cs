@@ -87,7 +87,7 @@ namespace Templater
                 buttonIncreaseFontSize.Enabled = true;
                 buttonDecreaseFontSize.Enabled = true;
                 labelFontSizeCaption.Text = HTMLHelper.HTML_CODE_FONT_CAPTION + page.FontSize;
-                // saveTemplateSettingsToolStripMenuItem.Enabled = true;
+                saveTemplateSettingsToolStripMenuItem.Enabled = true;
                 exportHTMLTemplateToolStripMenuItem.Enabled = true;
             }
         }
@@ -99,8 +99,40 @@ namespace Templater
         /// <param name="e"></param>
         private void saveTemplateSettingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
-            // TODO Save the template settings (button is disabled temporarily).
+            try
+            {
+                if(saveFileDialogTemplate.ShowDialog() == DialogResult.OK && saveFileDialogTemplate.FileName.Length > 0)
+                {
+                    using (StreamWriter writer =
+                        new StreamWriter(saveFileDialogTemplate.FileName))
+                    {
+                        writer.WriteLine("TEMPLATE SETTINGS FILE. PLEASE DO NOT MODIFY.");
+                        writer.WriteLine(page.Title);
+                        writer.WriteLine(page.CustomJS);
+                        writer.WriteLine(page.CustomCSS);
+
+                        foreach(string cssFile in page.CSS)
+                        {
+                            writer.WriteLine(cssFile);
+                        }
+
+                        foreach (string jsFile in page.JS)
+                        {
+                            writer.WriteLine(jsFile);
+                        }
+
+                        // TODO: Save body, DTD, font size.
+                    }
+
+                    // Show the user that the file has been saved.
+                    statusLabelFileSaved.Text = "Template settings '" + saveFileDialogTemplate.FileName + "' saved successfully.";
+                }
+            }
+            catch(Exception ex)
+            {
+                Debug.WriteLine("Could not save the template settings file.");
+                throw ex;
+            }
         }
 
         /// <summary>
@@ -394,15 +426,15 @@ namespace Templater
         {
             try
             {
-                if (saveFileDialogTemplate.ShowDialog() == DialogResult.OK && saveFileDialogTemplate.FileName.Length > 0)
+                if (exportHTMLTemplate.ShowDialog() == DialogResult.OK && exportHTMLTemplate.FileName.Length > 0)
                 {
-                    richTextBoxOutput.SaveFile(saveFileDialogTemplate.FileName, RichTextBoxStreamType.PlainText);
-                    statusLabelFileSaved.Text = "File '" + saveFileDialogTemplate.FileName + "' saved successfully";
+                    richTextBoxOutput.SaveFile(exportHTMLTemplate.FileName, RichTextBoxStreamType.PlainText);
+                    statusLabelFileSaved.Text = "File '" + exportHTMLTemplate.FileName + "' exported successfully.";
                 }
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("Could not save the template file.");
+                Debug.WriteLine("Could not export the template file.");
                 throw ex;
             }
         }
