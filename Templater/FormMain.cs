@@ -49,8 +49,8 @@ namespace Templater
             if(newTemplateForm.ShowDialog() == DialogResult.OK)
             {
 
-                // Reset the template.
-                page = new Template();
+                // Reset the template and UI.
+                resetTemplate();
 
                 richTextBoxOutput.ReadOnly = false;
 
@@ -82,16 +82,6 @@ namespace Templater
                 page.CustomJS = newTemplateForm.CustomJSFilename;
 
                 displayTemplate(page.ToString());
-
-                // Updating the UI.
-                buttonInsertDependencies.Enabled = true;
-                buttonEditCustomFiles.Enabled = true;
-                buttonEditBodyContent.Enabled = true;
-                buttonIncreaseFontSize.Enabled = true;
-                buttonDecreaseFontSize.Enabled = true;
-                labelFontSizeCaption.Text = HTMLHelper.HTML_CODE_FONT_CAPTION + page.FontSize;
-                saveTemplateSettingsToolStripMenuItem.Enabled = true;
-                exportHTMLTemplateToolStripMenuItem.Enabled = true;
             }
         }
 
@@ -164,10 +154,43 @@ namespace Templater
                     else
                     {
 
-                        // TODO: File is correct type, read the file and then display the template.
+                        // Reset the template and UI.
+                        resetTemplate();
+
+                        // Read in the settings.
                         string[] output = File.ReadAllLines(openFileDialogTemplate.FileName);
-                        // string output = File.ReadAllText(openFileDialogTemplate.FileName);
-                        displayTemplate("Standard is: " + output[1] + "\nTitle is: " + output[2] + "\nFont size is: " + output[3]);
+
+                        // Get the standard.
+                        if(output[HTMLHelper.TEMPLATE_INDEX_STANDARD] == HTMLHelper.TEMPLATE_STANDARD_HTML5)
+                        {
+                            page.Original = HTMLHelper.HTML5_DEFAULT;
+                            page.Standard = HTMLHelper.TEMPLATE_STANDARD_HTML5;
+                        }
+                        else if(output[HTMLHelper.TEMPLATE_INDEX_STANDARD] == HTMLHelper.TEMPLATE_STANDARD_HTML4)
+                        {
+                            page.Original = HTMLHelper.HTML4_DTD_STRICT;
+                            page.Standard = HTMLHelper.TEMPLATE_STANDARD_HTML4;
+                        }
+                        else
+                        {
+                            page.Original = HTMLHelper.XHTML_DTD_STRICT;
+                            page.Standard = HTMLHelper.TEMPLATE_STANDARD_XHTML;
+                        }
+
+                        // Include the base tags.
+                        page.Original += HTMLHelper.HTML_BASE_START;
+
+                        // Get the title.
+                        page.Title = output[HTMLHelper.TEMPLATE_INDEX_TITLE];
+
+                        // Get the custom JS and CSS files from the form.
+                        page.CustomCSS = output[HTMLHelper.TEMPLATE_INDEX_CUSTOM_CSS];
+                        page.CustomJS = output[HTMLHelper.TEMPLATE_INDEX_CUSTOM_JS];
+
+                        page.FontSize = float.Parse(output[HTMLHelper.TEMPLATE_INDEX_FONTSIZE]);
+
+                        displayTemplate(page.ToString());
+                        updateFontSize();
 
                         statusLabelFileSaved.Text = "Template settings file '" + openFileDialogTemplate.FileName + "' loaded successfully.";
                     }
@@ -183,6 +206,32 @@ namespace Templater
                 MessageBox.Show("The template file could not be found.", "Error: File not found", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 throw ex;
             }
+        }
+
+        /// <summary>
+        /// Resets the UI, for a new template or one loaded from file.
+        /// </summary>
+        private void resetTemplate()
+        {
+            page = new Template();
+            buttonInsertDependencies.Enabled = true;
+            buttonEditCustomFiles.Enabled = true;
+            buttonEditBodyContent.Enabled = true;
+            buttonIncreaseFontSize.Enabled = true;
+            buttonDecreaseFontSize.Enabled = true;
+            labelFontSizeCaption.Text = HTMLHelper.HTML_CODE_FONT_CAPTION + page.FontSize;
+            saveTemplateSettingsToolStripMenuItem.Enabled = true;
+            exportHTMLTemplateToolStripMenuItem.Enabled = true;
+        }
+
+        /// <summary>
+        /// Updates the font size of the template output.
+        /// </summary>
+        private void updateFontSize()
+        {
+            richTextBoxOutput.SelectAll();
+            richTextBoxOutput.SelectionFont = new Font(HTMLHelper.HTML_CODE_FONT, page.FontSize);
+            labelFontSizeCaption.Text = HTMLHelper.HTML_CODE_FONT_CAPTION + page.FontSize;
         }
 
         /// <summary>
@@ -468,9 +517,7 @@ namespace Templater
         private void buttonIncreaseFontSize_Click(object sender, EventArgs e)
         {
             page.FontSize = page.FontSize + 0.5F;
-            richTextBoxOutput.SelectAll();
-            richTextBoxOutput.SelectionFont = new Font(HTMLHelper.HTML_CODE_FONT, page.FontSize);
-            labelFontSizeCaption.Text = HTMLHelper.HTML_CODE_FONT_CAPTION + page.FontSize;
+            updateFontSize();
 
             if (page.FontSize >= 20F)
             {
@@ -492,9 +539,7 @@ namespace Templater
         private void buttonDecreaseFontSize_Click(object sender, EventArgs e)
         {
             page.FontSize = page.FontSize - 0.5F;
-            richTextBoxOutput.SelectAll();
-            richTextBoxOutput.SelectionFont = new Font(HTMLHelper.HTML_CODE_FONT, page.FontSize);
-            labelFontSizeCaption.Text = HTMLHelper.HTML_CODE_FONT_CAPTION + page.FontSize;
+            updateFontSize();
 
             if (page.FontSize <= 9F)
             {

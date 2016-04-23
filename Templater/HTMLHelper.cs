@@ -30,6 +30,11 @@ namespace Templater
         public const string TEMPLATE_STANDARD_HTML5 = "html5";
         public const string TEMPLATE_STANDARD_HTML4 = "html4";
         public const string TEMPLATE_STANDARD_XHTML = "xhtml";
+        public const int TEMPLATE_INDEX_STANDARD = 1;
+        public const int TEMPLATE_INDEX_TITLE = 2;
+        public const int TEMPLATE_INDEX_FONTSIZE = 3;
+        public const int TEMPLATE_INDEX_CUSTOM_JS = 4;
+        public const int TEMPLATE_INDEX_CUSTOM_CSS = 5;
 
         // Dependencies.
         public const string DEPENDENCY_JQUERY_1X = "<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js\"></script>";
