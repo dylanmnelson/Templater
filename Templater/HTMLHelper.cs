@@ -26,6 +26,11 @@ namespace Templater
         public const string HTML_CODE_FONT_SIZE = "10";
         public const string HTML_CODE_FONT_CAPTION = "Font size: ";
 
+        // Settings constants for saved templates.
+        public const string TEMPLATE_STANDARD_HTML5 = "html5";
+        public const string TEMPLATE_STANDARD_HTML4 = "html4";
+        public const string TEMPLATE_STANDARD_XHTML = "xhtml";
+
         // Dependencies.
         public const string DEPENDENCY_JQUERY_1X = "<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js\"></script>";
         public const string DEPENDENCY_JQUERY_2X = "<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js\"></script>";

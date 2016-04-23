@@ -9,6 +9,7 @@ namespace Templater
     class Template
     {
         private string original;
+        private string standard;
         private string title;
         private string code;
         private List<string> js;
@@ -22,6 +23,12 @@ namespace Templater
         {
             get { return original; }
             set { original = value; }
+        }
+
+        public string Standard
+        {
+            get { return standard; }
+            set { standard = value;}
         }
 
         public string Title

@@ -58,14 +58,17 @@ namespace Templater
                 if(newTemplateForm.IsHTML5Selected)
                 {
                     page.Original = HTMLHelper.HTML5_DEFAULT;
+                    page.Standard = HTMLHelper.TEMPLATE_STANDARD_HTML5;
                 }
                 else if(newTemplateForm.IsHTML4Selected)
                 {
                     page.Original = HTMLHelper.HTML4_DTD_STRICT;
+                    page.Standard = HTMLHelper.TEMPLATE_STANDARD_HTML4;
                 }
                 else
                 {
                     page.Original = HTMLHelper.XHTML_DTD_STRICT;
+                    page.Standard = HTMLHelper.TEMPLATE_STANDARD_XHTML;
                 }
 
                 // Include the base tags.
@@ -107,7 +110,9 @@ namespace Templater
                         new StreamWriter(saveFileDialogTemplate.FileName))
                     {
                         writer.WriteLine("TEMPLATE SETTINGS FILE. PLEASE DO NOT MODIFY.");
+                        writer.WriteLine(page.Standard);
                         writer.WriteLine(page.Title);
+                        writer.WriteLine(page.FontSize);
                         writer.WriteLine(page.CustomJS);
                         writer.WriteLine(page.CustomCSS);
 
@@ -121,7 +126,7 @@ namespace Templater
                             writer.WriteLine(jsFile);
                         }
 
-                        // TODO: Save body, DTD, font size.
+                        // TODO: Save body.
                     }
 
                     // Show the user that the file has been saved.
@@ -142,7 +147,7 @@ namespace Templater
         /// <param name="e"></param>
         private void loadTemplateSettingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // TODO Get a text file with template settings (button is disabled temporarily).
+            // TODO Get a text file with template settings.
 
             // Get a file from the open file dialog.
             try
@@ -162,7 +167,7 @@ namespace Templater
                         // TODO: File is correct type, read the file and then display the template.
                         string[] output = File.ReadAllLines(openFileDialogTemplate.FileName);
                         // string output = File.ReadAllText(openFileDialogTemplate.FileName);
-                        displayTemplate("Title is: " + output[1]);
+                        displayTemplate("Standard is: " + output[1] + "\nTitle is: " + output[2] + "\nFont size is: " + output[3]);
 
                         statusLabelFileSaved.Text = "Template settings file '" + openFileDialogTemplate.FileName + "' loaded successfully.";
                     }
